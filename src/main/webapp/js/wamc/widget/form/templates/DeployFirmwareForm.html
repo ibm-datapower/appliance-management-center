@@ -1,0 +1,65 @@
+<div class="wamcForm deployFirmware" role="presentation">
+	<form data-dojo-type="dijit/form/Form" data-dojo-attach-point="formNode">
+		<fieldset>
+			<legend>${nls.deployFirmware.setTargetFirmware}</legend>
+			
+			<div class="formRow">
+				<input id="${id}_upgradesOnlyRadioButton"
+						data-dojo-type="dijit/form/RadioButton"
+						data-dojo-attach-point="upgradesOnlyRadioButton" 
+						data-dojo-props="checked:'checked',name:'list',value:'upgrades'"/>
+				<label for="${id}_upgradesOnlyRadioButton">${nls.deployFirmware.upgradesOnly}</label>
+			</div>
+			
+			<div class="formRow">
+				<input id="${id}_allFirmwareVersionsRadioButton"
+						data-dojo-type="dijit/form/RadioButton" 
+						data-dojo-attach-point="allFirmwareVersionsRadioButton" 
+						data-dojo-props="name:'list', value:'all'"/>
+				<label for="${id}_allFirmwareVersionsRadioButton">${nls.deployFirmware.allFirmwareVersions}</label>
+			</div>
+			
+			<div class="formRow">
+				<select data-dojo-type="wamc/widget/form/Select" 
+						data-dojo-attach-point="versionList" 
+						data-dojo-props="label:'${nls.deployFirmware.specifyFirmwareVersion}',
+								helpMessage:'${nls.deployFirmware.mustUploadFirmware}'"
+						name="versionList">
+				</select>
+			</div>
+		</fieldset>
+		
+		<h2 id="${id}_summaryHeading">${nls.deployFirmware.summary}</h2>
+		<div class="firmwareApplianceTableContainer"
+				data-dojo-attach-point="firmwareApplianceTableContainer"></div>
+		<p class="dijitHidden"
+				data-dojo-attach-point="warningNode">
+			<img src="js/wamc/themes/claro/images/warning32.png"
+					style="float:left;padding-right:5px"
+					alt="${nls.deployFirmware.warning}"
+					title="${nls.deployFirmware.warning}">
+			<span data-dojo-attach-point="warningMessage"></span>
+		</p>
+		
+		<p>
+			<input data-dojo-type="wamc/widget/form/CheckBox"
+					data-dojo-attach-point="licenceCheck"
+					data-dojo-props="label:'${nls.deployFirmware.acceptLicence}',
+							checked:false,
+							role:'checkbox'"/>
+		</p>
+		
+		<p>${!nls.deployFirmware.note}</p>
+		
+		<div class="wamcFormControls" role="presentation">
+			<input data-dojo-type="dijit/form/Button"
+					data-dojo-attach-point="deployButton"
+					data-dojo-props="label:'${nls.deployFirmware.deploy}',
+							disabled:true"
+					type="submit"></input>
+			<input data-dojo-type="dijit/form/Button"
+					data-dojo-attach-point="cancelButton"
+					data-dojo-props="label:'${nls.deployFirmware.cancel}'"></input>
+		</div>
+	</form>
+</div>

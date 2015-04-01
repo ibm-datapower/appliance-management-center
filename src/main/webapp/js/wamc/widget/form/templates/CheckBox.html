@@ -1,0 +1,12 @@
+<div id="widget_${id}" class="dijitReset dijitInline">
+	<div class="dijit dijitReset dijitInline" role="presentation"
+		data-dojo-attach-point="stateNode">
+		<input ${!nameAttrSetting} type="${type}"
+			${checkedAttrSetting} class="dijitReset dijitCheckBoxInput"
+			data-dojo-attach-point="focusNode"
+			data-dojo-attach-event="onclick:_onClick" />
+	</div>
+	<div class="wamcLabel dijitInline dijitHidden">
+		<label for="${id}" data-dojo-attach-point="compLabelNode"></label>
+	</div>
+</div>

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<!-- /**
+ * Copyright 2014 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/ -->
+<head>
+	<meta charset="UTF-8">
+	<title>Test for wamc.widget.messaging.MessageArea</title>
+
+	<link rel="stylesheet" href="../../../../../jslib/dojo/resources/dojo.css"/>
+	<link rel="stylesheet" href="../../../../../jslib/dijit/themes/dijit.css"/>
+	<link rel="stylesheet" href="../../../../../jslib/dijit/themes/claro/claro.css"/>
+	<link rel="stylesheet" href="../../../themes/claro/widget/messaging/MessageArea.css" />
+
+	<script type="text/javascript" src="../../../../../jslib/dojo/dojo.js" 
+		data-dojo-config="async:true,
+				parseOnLoad:true,
+				isDebug:true,
+				locale:'en-gb',
+				paths:{'wamc':'../../wamc','idx':'../../idx'}"></script>
+				
+	<script type="text/javascript">
+		require(["doh",
+		        "dojo/parser",
+				"dojo/ready",
+				"dojo/dom",
+				"dojo/on",
+				"dijit/registry",
+				"wamc/widget/messaging/MessageArea"],
+				function(doh,parser,ready,dom,on,registry,MessageArea){
+			
+ 			ready(function(){
+				
+ 				var errorWidget = registry.byId("errorMessage");
+ 				
+ 	 			console.log(errorWidget);
+				
+				doh.register("testError",[
+				     	function isDijitLoaded(){
+				     	//Check that the Dijit loads
+				     		doh.assertTrue(errorWidget);
+				     	},
+						function isDijitCorrectType(){
+				     		doh.assertTrue(errorWidget instanceof wamc.widget.messaging.MessageArea);
+						}
+				]);
+				
+				var warningWidget = registry.byId("warningMessage");
+				
+				doh.register("testwarning",[
+	 			     	function isDijitLoaded(){
+	 			     	//Check that the Dijit loads
+	 			     		doh.assertTrue(warningWidget);
+	 			     	},
+	 					function isDijitCorrectType(){
+	 			     		doh.assertTrue(warningWidget instanceof wamc.widget.messaging.MessageArea);
+	 					}
+	
+				]);
+				
+				var informationWidget = registry.byId("informationMessage");
+				
+				doh.register("testinformation",[
+	   			     	function isDijitLoaded(){
+	   			     	//Check that the Dijit loads
+	   			     		doh.assertTrue(informationWidget);
+	   			     	},
+	   					function isDijitCorrectType(){
+	   			     		doh.assertTrue(informationWidget instanceof wamc.widget.messaging.MessageArea);
+	   					},
+	   					function testShowMessage(){
+	   						MessageArea.showMessage(dom.byId("showMessage"),{type:"Information",title:"Test showMessage()",message:"Simple Test of the showMessage() convenience function"});
+	   					}
+	   			]);
+				
+				var serverErrorWidget = registry.byId("serverErrorMessage");
+				
+				doh.register("testServerError",[
+	   			     	function basicTest(){
+	   			     		var args = {type:"Error",
+										title:"Error",
+										message:"Additional properties for Appliance Management Toolkit are being loaded from WAMT.properties in \"/home/pete/Desktop\"",
+										explanation:"Appliance Management Center uses WAMT to control appliances. Normally, WAMC performs all the WAMT configuration that is required, but for problem determination purposes it is possible to set additional configuration properties manually.",
+										userAction:"If you expect extra properties to be used, no action is required. If you do not know what extra properties are being set, read the file named in the message. To stop using extra properties, remove the property \"com.ibm.amc.wamtConfigFilePath\" from the WAMC configuration file at /server/usr/servers/runtime/apps/wamc.war/wamc.properties",
+										code:"CWZBA0517I",
+										timestamp:"2012-02-01T12:49:53.802+0000"},
+								n = dom.byId("serverErrorMessage");
+
+	   						MessageArea.showMessage(n,args);
+	   			     	},
+	   			     	function noResponse(){
+	   			     		var args = {type:"Information",
+										title:"Information",
+										message:"Additional properties for Appliance Management Toolkit are being loaded from WAMT.properties in \"/home/pete/Desktop\"",
+										explanation:"Appliance Management Center uses WAMT to control appliances. Normally, WAMC performs all the WAMT configuration that is required, but for problem determination purposes it is possible to set additional configuration properties manually.",
+										code:"CWZBA0517I",
+										timestamp:"2012-02-01T12:49:53.802+0000"},
+	   			     			n = dom.byId("serverInfoMessage");
+	   			     			
+							MessageArea.showMessage(n,args);
+	   			     	},
+	   			     	function noResponseOrExplanation(){
+	   			     		var args = {type:"Warning",
+	   			     					title:"Warning",
+	   			     					message:"Additional properties for Appliance Management Toolkit are being loaded from WAMT.properties in \"/home/pete/Desktop\"",
+	   			     					code:"CWZBA0517I",
+	   			     					timestamp:"2012-02-01T12:49:53.802+0000"},
+	   			     			n = dom.byId("serverWarningMessage");
+							
+							MessageArea.showMessage(n,args);
+	   			     	},
+	   			     	function linkedException(){
+	   			     		var args = {type:"Error",
+	   			     					title:"Error",
+	   			     					message:"Additional properties for Appliance Management Toolkit are being loaded from WAMT.properties in \"/home/pete/Desktop\"",	explanation:"Appliance Management Center uses WAMT to control appliances. Normally, WAMC performs all the WAMT configuration that is required, but for problem determination purposes it is possible to set additional configuration properties manually.",
+	   			     					userAction:"If you expect extra properties to be used, no action is required. If you do not know what extra properties are being set, read the file named in the message. To stop using extra properties, remove the property \"com.ibm.amc.wamtConfigFilePath\" from the WAMC configuration file at /server/usr/servers/runtime/apps/wamc.war/wamc.properties",
+	   			     					code:"CWZBA0517I",
+	   			     					timestamp:"2012-02-01T12:49:53.802+0000",
+	   			     					cause:{
+		   			     					timestamp:"2012-02-02T15:33:36.423+0000",
+		   			     					code:"CWZBA0508E",
+		   			     					message:"The name \"wamcemu1\" is already in use or the appliance \"wamcemu1\" is already added to Appliance Management Center.",
+		   			     					explanation:"Either the name specified for the appliance is already in use or the connection details specified in the request are for an appliance that is already added to Appliance Management Center.",
+		   			     					userAction:"See the linked exception to determine the cause.",
+		   			     					cause:{
+		   			     						code:"WAMT0014E",
+		   			     						message:"The following serial number already exists: 11111 11111",
+		   			     						explanation:"The appliance might exist for the DataPower appliance manager and cannot be re-added. ",
+		   			     						userAction:"You cannot re-add the same appliance to the DataPower appliance manager."
+											},
+										}
+								},
+	   			     			n = dom.byId("serverLinkedMessage");
+	   			     	
+							MessageArea.showMessage(n,args);
+	   			     	},
+	   			     	function linkedGenericException(){
+							var args = {type:"Error",
+										title:"Error",
+										message:"Failed to connect to the appliance \"wamcdp27\" on port 8443.",
+										explanation:"A failure occurred when trying to connect by using the Appliance Management Protocol that is using the given host and port.",
+										userAction:"Ensure that the host and port are correct, that the Appliance Management Protocol is enabled on the XML Management Interface, and that the appliance is available.",
+										code:"CWZBA0509E",
+										timestamp:"2012-02-07T11:45:13.252+0000",
+										cause:{
+											message:"java.net.UnknownHostException: wamcdp27"
+										}
+								},
+								n = dom.byId("serverLinkedGenericMessage");
+								
+								MessageArea.showMessage(n,args);
+	   			     	},
+	   			     	function linkedNoExplanationException(){
+							var args = {type:"Warning",
+										title:"Warning",
+										message:"Failed to connect to the appliance \"wamcdp27\" on port 8443.",
+										code:"CWZBA0509E",
+										timestamp:"2012-02-07T11:45:13.252+0000",
+										cause:{
+											message:"Stuff happened."
+										}
+									},
+								n = dom.byId("serverLinkedNoExplanationMessage");
+								
+								MessageArea.showMessage(n,args);
+	   			     	},	   			 
+	   			     	function linkedSubCauseOnly(){
+							var args = {type:"Warning",
+										title:"Warning",
+										message:"Failed to connect to the appliance \"wamcdp27\" on port 8443.",
+										explanation:"A failure occurred when trying to connect by using the Appliance Management Protocol that is using the given host and port.",
+										code:"CWZBA0509E",
+										timestamp:"2012-02-07T11:45:13.252+0000",
+										cause:{
+											code:"WAMT9999E",
+											message:"Stuff happened.",
+											cause:{
+												message:"java.net.UnknownHostException: wamcdp27"
+											}
+										}
+								},
+								n = dom.byId("serverSubCauseOnlyMessage");
+								
+							MessageArea.showMessage(n,args);
+	   			     	}
+	   			]);
+	 			doh.run();
+ 			});
+ 			
+		});
+	</script>
+	
+</head>
+<body class="claro" role="application">
+	
+	<div id="errorMessage" data-dojo-type="wamc/widget/messaging/MessageArea"
+		data-dojo-props="type:'Error',
+				title:'Test Error',
+				message:'This is a test error'"></div>
+
+	<div id="warningMessage" data-dojo-type="wamc/widget/messaging/MessageArea"
+		data-dojo-props="type:'Warning',
+				title:'Test warning',
+				message:'This is a test warning'"></div>
+	
+	<div id="informationMessage"
+		data-dojo-type="wamc/widget/messaging/MessageArea"
+		data-dojo-props="type:'Information',
+					title:'Test information',
+					message:'This is a test information'"></div>
+	
+	<div id="showMessage"></div>
+	
+	<div id="serverErrorMessage"></div>
+	
+	<div id="serverWarningMessage"></div>
+	
+	<div id="serverInfoMessage"></div>
+	
+	<div id="serverLinkedMessage"></div>
+
+	<div id="serverLinkedGenericMessage"></div>
+	
+	<div id="serverLinkedNoExplanationMessage"></div>
+	
+	<div id="serverSubCauseOnlyMessage"></div>
+	
+</body>
+</html>

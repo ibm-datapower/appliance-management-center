@@ -1,0 +1,51 @@
+/**
+ * Copyright 2014 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+.claro .dijitToolbar {
+    border: 1px solid #CCCCCC;
+}
+
+.actionToolbar h2{
+	display:inline-block;
+	margin-top: 0.643em;
+	margin-bottom: 0.643em;
+}
+.actionToolbar .actionToolbarButtons{
+	display:inline-block;
+	float:right;
+}
+.actionToolbar .dijitToolbar {
+	background: none;
+	border: none;
+	padding: 5px;
+	padding-left: 0px;
+}
+
+.actionToolbar .dijitToolbar, .actionToolbar .dijitButton span {
+	padding: 0;
+	margin: 0;
+}
+
+.actionToolbar .dijitToolbar .dijitButtonHover,
+.actionToolbar .dijitToolbar .dijitButtonActived,
+.actionToolbar .dijitToolbar .dijitButtonHover .dijitButtonNode,
+.actionToolbar .dijitToolbar .dijitButtonActived .dijitButtonNode,
+.actionToolbar .dijitToolbar .dijitButton .dijitButtonNode,
+.actionToolbar .dijitToolbar .dijitButton .dijitButtonNode {
+	border: none;
+	background: none;
+	padding: 0;
+	box-shadow: none;
+}

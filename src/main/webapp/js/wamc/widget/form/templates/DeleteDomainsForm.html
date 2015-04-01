@@ -1,0 +1,20 @@
+<div class="wamcForm">
+	<p>${nls.deleteDomain.description}</p>
+    <p>${nls.deleteDomain.question}</p>
+	<div data-dojo-attach-point="domainsTableContainer" class="domainsTableContainer"></div>
+    <div data-dojo-attach-point="defaultWarning" class="hidden"><img src="js/wamc/themes/claro/images/warning32.png" style="float:left;padding-right:5px" alt="${nls.deleteDomain.warning}" title="${nls.deleteDomain.warning}"/>
+      <p data-dojo-attach-point="defaultMessage" class="important"></p>
+      <p data-dojo-attach-point="defaultExplaination"></p>
+    </div>
+	<div data-dojo-attach-point="quiesceWarning" class="hidden"><img src="js/wamc/themes/claro/images/warning32.png" style="float:left;padding-right:5px" alt="${nls.deleteDomain.warning}" title="${nls.deleteDomain.warning}"/>
+	  <p data-dojo-attach-point="quiesceMessage" class="important"></p>
+	  <p data-dojo-attach-point="quiesceExplaination"></p>
+	</div>
+	<p>
+	<div class="messageDialogFooter">
+		<span class="messageAction">
+			<input data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton" data-dojo-props="label:'${nls.deleteDomain.deleteButton}'"></input>
+			<input data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelButton" data-dojo-props="label:'${nls.deleteDomain.cancel}'"></input>
+		</span>
+	</div>
+</div>

@@ -1,0 +1,192 @@
+/**
+ * Copyright 2014 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+.wamcMessage{
+	display: block;
+	margin-left: 3px;
+	margin-right: 3px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	overflow: hidden;
+	padding: 6px;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 5px;
+	
+}
+
+.wamcMessageHead{
+	
+}
+
+.wamcMessageIcon, .wamcExpandIcon, .wamcCollapseIcon{
+	width:16px;
+	height:16px;
+	margin: 1px 5px 0 0;
+	vertical-align: middle;
+	float:left;
+}
+
+.wamcMessageAltText{
+	display:none;
+}
+
+.wamcMessageContent{
+	vertical-align: middle;
+	float: left;
+	word-wrap: break-word;
+}
+
+.wamcMessageDetailsLinks, .wamcMessageCauseLinks{
+	color: #05386B;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.wamcMessageDetailsLinks{
+	margin-left:4px;
+}
+
+.wamcMessageLeft{
+	float:left;
+}
+
+.wamcMessageRight{
+	float:right;
+}
+
+.wamcMessageCloseIcon{
+	background-repeat: no-repeat;
+	height: 12px;
+	width: 12px;
+	vertical-align: middle;
+	margin: 3px 5px 3px 5px;
+	background-image: url('../../images/delete.png');
+	cursor:pointer;
+}
+
+.wamcMessageSplitter{
+	clear:both	
+}
+
+.wamcMessageFooter{
+	margin: 4px 0 0 21px;
+	display: block;
+}
+
+.wamcMessageContrast{
+	color: gray;
+}
+
+.wamcMessageTimeStamp{
+	
+}
+
+.wamcMessageDetails{
+	margin: 2px 0 0 21px;
+}
+
+.wamcMessageSection{
+	padding: 7px 0 0 0;
+}
+.wamcMessageDetailPara{
+	margin: 2px 0 5px 0px;	
+}
+
+.wamcExpandIcon{
+	background-image:url("../../images/Twistie-closed.png");
+}
+
+.wamcCollapseIcon{
+	background-image:url("../../images/Twistie-opened.png");
+}
+
+.wamcMessageCause{
+	margin: 0px 0 5px 0px;
+	max-height: 120px;
+	overflow: auto;
+	overflow-x: hidden;	
+}
+
+.wamcMessageCauseDetails{
+	margin-top: 5px;
+	margin-left: 3px;
+	background-color: #DDD;
+	word-wrap: break-word;
+}
+
+.nestedCause {
+	background-repeat: no-repeat;
+	padding: 0px 0px 0px 22px;
+	background-image: url('../../images/nestedret.gif');
+}
+
+.wamcMessageToggleButton {
+    color: #00649d;
+    text-decoration: none;
+}
+
+.wamcMessageToggleButton:hover {
+    color: #05386b;
+    text-decoration: underline;
+}
+
+/** Message Area Variations **/
+
+.wamcErrorMessage {
+	background-color: #FFF3F3;
+	border-color: #D6554F;
+}
+
+.wamcErrorMessage .wamcMessageIcon{
+	background-image:url("../../images/msgError16.png");
+}
+
+.wamcWarningMessage {
+	background-color: #FFFFEC;
+	border-color: #F0BF3B;
+}
+
+.wamcWarningMessage .wamcMessageIcon{
+	background-image:url("../../images/msgWarning16.png");
+}
+
+.wamcInformationMessage {
+	background-color: #F0FAFF;
+	border-color: #54AACF;
+}
+
+.wamcInformationMessage .wamcMessageIcon{
+	background-image:url("../../images/msgInfo16.png");
+}
+
+.wamcConfirmationMessage {
+	background-color:orange;
+}
+
+.wamcConfirmationMessage .wamcMessageIcon{
+	background-image:url("../../images/msgConfirm16.png");
+}
+
+.wamcSuccessMessage {
+	background-color: #EDF8EB;
+	border-color: rgb(46, 151, 0);
+	border-color: rgba(46, 151, 0, 0.75);
+}
+
+.wamcSuccessMessage .wamcMessageIcon{
+	background-image:url("../../images/msgSuccess16.png");
+}

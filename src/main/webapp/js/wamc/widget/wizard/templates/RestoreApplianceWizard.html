@@ -1,0 +1,184 @@
+<div class="wamcWizard"
+	><div data-dojo-type="wamc/widget/Wizard"
+			data-dojo-props="nextButtonLabel:'${nls.restoreApplianceWizard.next}',previousButtonLabel:'${nls.restoreApplianceWizard.previous}',cancelButtonLabel:'${nls.restoreApplianceWizard.cancel}',doneButtonLabel:'${nls.restoreApplianceWizard.done}'"
+			data-dojo-attach-point="wizard" aria-label="${nls.restoreApplianceWizard.title}"
+		><div data-dojo-attach-point="cryptoPane"
+				data-dojo-type="dojox/widget/WizardPane"
+				data-dojo-props="title:'${nls.restoreApplianceWizard.crypto.title}'"
+				aria-label="${nls.restoreApplianceWizard.crypto.title}"
+			><div class="wamcForm" role="presentation"
+				><form enctype="multipart/form-data" data-dojo-type="dijit/form/Form"
+						data-dojo-attach-point="cryptoForm" method="POST" action=""
+					><div class="formSection" role="presentation"
+						><h2>${nls.restoreApplianceWizard.information.title}</h2
+						>${nls.restoreApplianceWizard.information.details}<ul
+							><li>${nls.restoreApplianceWizard.information.action1}</li
+							><li>${nls.restoreApplianceWizard.information.action2}</li
+						></ul></div
+					><fieldset name="cryptoSpecifyCryptoFieldset"
+						><legend>${nls.restoreApplianceWizard.crypto.title}</legend
+						><p>${nls.restoreApplianceWizard.crypto.specifyBackupCryptoDetails}</p
+						><div class="formRow" role="presentation"
+							><input type="text"
+									class="dataField"
+									name="certificateName"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="cryptoCertificateNameDataField"
+									data-dojo-props="label:'${nls.restoreApplianceWizard.crypto.certificateName}',
+											labelWidth:'200px',
+											instantValidate:true,
+											required:true,trim:true,pattern:wamc.validation.certificateName(),
+											hintPosition:'outside',
+											helpMessage:'${nls.restoreApplianceWizard.hoverHelp.cryptoCertificate}'" 
+							/></div
+						></fieldset
+					></form
+				></div
+			></div
+		><div data-dojo-attach-point="locationPane"
+				data-dojo-type="dojox/widget/WizardPane"
+				data-dojo-props="title:'${nls.restoreApplianceWizard.location.title}'"
+				aria-label="${nls.restoreApplianceWizard.location.title}"
+			><div class="wamcForm" role="presentation"
+				><form id="${id}_locationForm" data-dojo-type="dijit/form/Form"
+						data-dojo-attach-point="locationForm"
+						enctype="multipart/form-data"
+						method="POST"
+					><fieldset name="specifyBackupLocationFieldset"
+						><legend>${nls.restoreApplianceWizard.location.title}</legend
+						><div class="formRow" role="presentation"
+							><input id="${id}_locationPane_zipFileRadioButton"
+									data-dojo-type="dijit/form/RadioButton"
+									data-dojo-attach-point="locationZipFileRadioButton"
+									data-dojo-props="name:'type',
+												value:'zipFile'"
+							/><label for="${id}_locationPane_zipFileRadioButton">${nls.restoreApplianceWizard.location.zipFileRadio}</label
+							></div
+						><div class="formRow indent" role="presentation"
+							><input data-dojo-props="label:'${nls.restoreApplianceWizard.location.zipFile}',
+										labelWidth:'200px',readOnly:true,
+										instantValidate:true,
+										uploader:'${id}_locationPane_zipFileUploader'"
+									data-dojo-type="wamc/widget/form/UploaderValueTextBox"
+									data-dojo-attach-point="locationZipFileDisplay"
+							/><input id="${id}_locationPane_zipFileUploader"
+									type="file" name="zipFile"
+									data-dojo-type="dojox/form/Uploader"
+									data-dojo-attach-point="locationZipFileDataField"
+									data-dojo-props="label:'${nls.restoreApplianceWizard.location.browse}',multiple:false,url:'${target}'" 
+							/></div
+						><div class="formRow" role="presentation"
+							><input id="${id}_locationPane_applianceLocalFileRadioButton"
+									data-dojo-type="dijit/form/RadioButton"
+									data-dojo-attach-point="locationApplianceLocalFileRadioButton"
+									data-dojo-props="name:'type',
+										value:'applianceLocalFile'"
+							/><label for="${id}_locationPane_applianceLocalFileRadioButton">${nls.restoreApplianceWizard.location.applianceLocalFileRadio}</label
+							></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_applianceLocalFileDataField"
+									type="text" class="dataField"
+									name="applianceLocalFile"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="locationApplianceLocalFileDataField"
+									data-dojo-props="label:'${nls.restoreApplianceWizard.location.applianceLocalFile}',
+													labelWidth:'200px',
+													value:'local://',
+													instantValidate:true,trim:true,pattern:wamc.validation.applianceLocalFile()" 
+						/></div
+						><div class="formRow" role="presentation"
+							><input id="${id}_locationPane_applianceTemporaryFileRadioButton"
+									data-dojo-type="dijit/form/RadioButton"
+									data-dojo-attach-point="locationApplianceTemporaryFileRadioButton"
+									data-dojo-props="name:'type',
+											 value:'applianceTemporaryFile'"
+							/><label for="${id}_locationPane_applianceTemporaryFileRadioButton">${nls.restoreApplianceWizard.location.applianceTemporaryFileRadio}</label
+						></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_applianceTemporaryFileDataField"
+										type="text" class="dataField"
+										name="applianceTemporaryFile"
+										data-dojo-type="wamc/widget/form/TextBox"
+										data-dojo-attach-point="locationApplianceTemporaryFileDataField"
+										data-dojo-props="label:'${nls.restoreApplianceWizard.location.applianceTemporaryFile}',
+													labelWidth:'200px',
+													instantValidate:true,
+													value:'temporary://',
+													trim:true,pattern:wamc.validation.applianceTemporaryFile()"
+							/></div
+						><div class="formRow" role="presentation"
+							><input id="${id}_locationPane_ftpRadioButton"
+									data-dojo-type="dijit/form/RadioButton"
+									data-dojo-attach-point="locationFtpRadioButton"
+									data-dojo-props="name:'type',
+													 value:'ftp'"
+							/><label for="${id}_locationPane_ftpRadioButton">${nls.restoreApplianceWizard.location.ftpRadio}</label
+							></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_ftpHostNameDataField"
+									class="dataField"
+									name="ftpHostName" 
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="locationFtpHostNameDataField"
+									data-dojo-props="label:'${nls.restoreApplianceWizard.location.ftpHostName}',labelWidth:'200px',
+											instantValidate:true,
+											trim:true,pattern:wamc.validation.host({allowNamed:true,allowIP:true,allowLocal:true,allowPort:false}),
+											helpMessage:'${nls.restoreApplianceWizard.hoverHelp.ftpHostName}'"
+							/></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_ftpPortDataField"
+									class="dataField"
+									name="ftpPort"
+									data-dojo-type="wamc/widget/form/NumberTextBox"
+									data-dojo-attach-point="locationFtpPortDataField"
+									data-dojo-props="label:'${nls.restoreApplianceWizard.location.ftpPort}',
+											labelWidth:'200px',
+											instantValidate:true,
+											constraints:{min:0,max:65535,places:0,pattern:'#####'},
+											role:'textbox'"
+							/></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_ftpPathDataField"
+									class="dataField"
+									name="ftpPath"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="locationFtpPathDataField"
+									data-dojo-props="label:'${nls.restoreApplianceWizard.location.ftpPath}',
+											labelWidth:'200px',
+											instantValidate:true,
+											trim:true"
+							/></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_ftpUserIdDataField"
+									class="dataField"
+									name="ftpUserId" 
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="locationFtpUserIdDataField"
+									data-dojo-props="label:'${nls.restoreApplianceWizard.location.ftpUserId}',
+											labelWidth:'200px',
+											instantValidate:true,
+											trim:true"
+							/></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_ftpUserPasswordDataField"
+									class="dataField"
+									name="ftpUserPassword" 
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="locationFtpUserPasswordDataField"
+									data-dojo-props="label:'${nls.restoreApplianceWizard.location.ftpUserPassword}',
+											labelWidth:'200px',
+											instantValidate:true,
+											trim:true,
+											type:'password'"
+							/></div
+						></fieldset
+					></form
+				></div
+			></div
+		></div
+		><div data-dojo-type="dojox/widget/Standby"
+				data-dojo-attach-point="standby"
+				data-dojo-props="target:this.domNode,text:'${nls.restoreApplianceWizard.standbyText}',centerIndicator:'text',color:'#F7F7F7'"
+		></div
+	></div
+>

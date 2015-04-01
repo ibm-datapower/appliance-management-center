@@ -1,0 +1,42 @@
+<div class="wamcForm" role="presentation">
+	<div data-dojo-attach-point="formNode" role="presentation">
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.serviceDetail.name}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					readOnly:true"
+				data-dojo-attach-point="nameDataField"
+				data-wamc-datakey="name"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+					data-dojo-props="label: '${nls.serviceDetail.type}',
+						labelAlignment: 'horizontal',
+						labelWidth: '110px',
+						readOnly:true"
+					data-dojo-attach-point="typeDataField"
+					data-wamc-datakey="classDisplayName"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+					data-dojo-props="label: '${nls.serviceDetail.domain}',
+						labelAlignment: 'horizontal',
+						labelWidth: '110px',
+						readOnly:true"
+					data-dojo-attach-point="domainNameDataField"
+					data-wamc-datakey="domainName"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+					data-dojo-props="label: '${nls.serviceDetail.appliance}',
+						labelAlignment: 'horizontal',
+						labelWidth: '110px',
+						readOnly:true"
+					data-dojo-attach-point="applianceNameDataField"
+					data-wamc-datakey="applianceName"/>
+
+		<div class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.domainDetail.status}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px'"
+				data-dojo-attach-point="statusDataField"
+				data-wamc-datakey="status"></div>
+	</div>
+</div>

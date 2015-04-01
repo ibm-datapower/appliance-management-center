@@ -1,0 +1,172 @@
+/**
+ * Copyright 2014 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+/* First Headers in our forms do not need so much top margin*/
+.wamcForm h3:first-child, .wamcForm h3:first-of-type {
+	margin-top:0em;
+}
+
+.wamcForm h2:first-child, .wamcForm h2:first-of-type {
+	margin-top:0em;
+}
+
+.wamcForm legend{
+	font-size: 1.1667em;
+	font-weight: bold;
+	line-height: 1.286em;
+	margin-bottom: 0.643em;
+}
+
+.wamcForm fieldset{
+	margin-bottom: 10px;
+}
+
+.wamcForm fieldset p{
+	margin-bottom:10px;
+}
+
+.wamcForm fieldset p:first-of-type{
+	margin-top:0px;
+}
+
+.wamcValueDisplay .dijitInputContainer {
+	margin-top:3px;
+	margin-bottom:2px;
+}
+
+.formRow {
+	margin-bottom:2px;
+}
+
+.formCell {
+	display:inline-block;
+	width:40%;
+	vertical-align: middle;
+}
+
+.formCell.label, .formCellWide label {
+	vertical-align: middle;
+	display:inline-block;
+}
+
+.formCell.half, .formCellWide {
+	display:inline-block;
+	width:50%;
+	vertical-align: middle;
+}
+
+/* If there are two formCells in a row, right-align the right-hand one. */
+div.formCell + div.formCell {text-align:right} 
+
+.formCell.twoThirds {
+	width:67%;
+}
+
+.formCell.third{
+	display:inline-block;
+	width:33%;
+	vertical-align: middle;
+}
+
+.formCell.quarter {
+	width:25%;
+}
+
+.valueDisplayValue {
+	display: block;
+	word-wrap: break-word;
+	width: 180px;
+	-ms-word-wrap: break-word;
+}
+
+.wamcFormControls{
+	margin-top: 10px;
+	text-align: right;
+}
+
+/* DataField styles */
+
+.dataField {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	width:100%;
+	display: inline-block;
+}
+
+.prefix {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	display: inline-block;
+	width: 30%;
+	padding-right: 4px;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.dataField.prefixed {
+	width:70%;
+}
+
+.wamcComposite.dataField {
+	-webkit-box-sizing: content-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: content-box;    /* Firefox, other Gecko */
+	box-sizing: content-box;         /* Opera/IE 8+ */
+	display: block;
+}
+
+span.dataField {
+	padding:4px 8px;
+	border: 1px;
+	min-height:15px;
+	vertical-align:middle;
+}
+
+.formCell .dijitRadio, .formCellWide .dijitRadio {
+	margin-right:4px;
+}
+
+.formCell-with-prefix {
+	/* TODO: Remove with RestoreApplianceForm*/
+	display:inline-block;
+	width:31.5%;
+	vertical-align: middle;
+}
+
+.fileprefix {
+	/* TODO: Remove with RestoreApplianceForm*/
+	display: inline-block;
+	width: 15%;
+	text-align: right;
+	vertical-align: middle;
+}
+
+/** Checkbox list styles **/
+
+.wamcCheckBoxList {
+	width: 400px;
+	height: 200px;
+	border: 1px solid #000000;
+	overflow-y: scroll;
+}
+
+.wamcCheckBoxList>div {
+	display:block;
+}
+
+.wamcCheckBoxList>p {
+	margin:4px;
+}

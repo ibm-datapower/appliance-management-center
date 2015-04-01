@@ -1,0 +1,217 @@
+<div class="wamcWizard" role="presentation">
+	<div data-dojo-type="wamc/widget/Wizard" data-dojo-props="nextButtonLabel:'${nls.createDomainWizard.next}',previousButtonLabel:'${nls.createDomainWizard.previous}',cancelButtonLabel:'${nls.createDomainWizard.cancel}',doneButtonLabel:'${nls.createDomainWizard.done}'" data-dojo-attach-point="wizard" aria-label="${nls.createDomainWizard.title}">
+		<div data-dojo-attach-point="createDomainPane" data-dojo-type="dojox/widget/WizardPane" data-dojo-props="title:'${nls.createDomainWizard.createDomainTitle}'" aria-label="${nls.createDomainWizard.createDomainTitle}">
+		<div class="wamcForm" role="presentation">
+			<h2 id="${id}_createDomain_summaryHeader">${nls.createDomainWizard.createDomain.header}</h2>
+	
+			<div class="gridContainer" data-dojo-attach-point="createDomainGridContainerNode" style="height:112px"></div>
+
+			<p>${nls.createDomainWizard.createDomain.explanation}</p>
+
+			<form data-dojo-attach-point="createDomainForm" data-dojo-type="dijit/form/Form" action="">
+				<div class="formRow">
+					<input data-dojo-type="wamc/widget/form/TextBox"
+						data-dojo-props="label:'${nls.createDomainWizard.createDomain.name}',
+						labelWidth:'240px',
+						trim:true,required:true,maxlength:40,
+						pattern:wamc.validation.domainName(),
+						instantValidate:true,role:'textbox'"
+						data-dojo-attach-point="createDomainDomainNameDataField"/>
+				</div>
+			</form>
+
+			<p><strong>${nls.createDomainWizard.createDomain.noteHeader}</strong> ${nls.createDomainWizard.createDomain.noteText}</p>
+
+			</div>
+		</div>
+		<div data-dojo-attach-point="configurationSourcePane" data-dojo-type="dojox/widget/WizardPane" data-dojo-props="title:'${nls.createDomainWizard.configurationSourceTitle}'" aria-label="${nls.createDomainWizard.configurationSourceTitle}">
+			<div class="wamcForm" role="presentation">
+				<form id="${id}_configSourceForm" enctype="multipart/form-data" data-dojo-attach-point="configSourceForm" data-dojo-type="dijit/form/Form" method="POST" >
+				
+					<fieldset>
+						<legend>${nls.createDomainWizard.configurationSource.header}</legend>
+						<p>${nls.createDomainWizard.configurationSource.explanation.1}</p>
+						<ul>
+							<li>${nls.createDomainWizard.configurationSource.explanation.2}<ul>
+								<li>${nls.createDomainWizard.configurationSource.explanation.3}</li>
+								<li>${nls.createDomainWizard.configurationSource.explanation.4}</li>
+								</ul>
+							</li>
+							<li>${nls.createDomainWizard.configurationSource.explanation.5}</li>
+							</ul>
+						
+						<div class="formRow">
+							<input class="dataField"
+								data-dojo-type="dijit/form/RadioButton" 
+								data-dojo-attach-point="configSourceLocalSourceRadioButton" 
+								data-dojo-props="name:'sourceType',
+								value:'local'"/>
+							<label data-wamc-labelfor="configSourceLocalSourceRadioButton">${nls.createDomainWizard.configurationSource.localSourceRadio}</label>
+						</div>
+
+						<div class="formRow indent"
+							><input data-dojo-props="label:'${nls.createDomainWizard.configurationSource.localSource}',
+									labelWidth:'120px',instantValidate:true,readOnly:true,
+									uploader:'${id}_configSourcePane_localSourceUploader'"
+								data-dojo-type="wamc/widget/form/UploaderValueTextBox"
+								data-dojo-attach-point="configSourceLocalSourceDisplay"
+							/><input id="${id}_configSourcePane_localSourceUploader" 
+								type="file"
+								name="localFile"
+								data-dojo-type="dojox/form/Uploader" 
+								data-dojo-attach-point="configSourceLocalSourceUploader"  
+								data-dojo-props="label:'${nls.createDomainWizard.configurationSource.browse}',multiple:false,url:'${target}'"
+						/></div>
+
+						<div class="formRow">
+							<input
+								class="dataField" 
+								data-dojo-attach-point="configSourceRemoteSourceRadioButton" 
+								data-dojo-type="dijit/form/RadioButton" 
+								data-dojo-props="name:'sourceType',
+									value:'remote'"/>
+							<label data-wamc-labelfor="configSourceRemoteSourceRadioButton">${nls.createDomainWizard.configurationSource.remoteSourceRadio}</label>
+						</div>
+						
+						<div class="formRow indent">
+							<input class="dataField"
+									data-dojo-props="name:'uri',
+										label:'${nls.createDomainWizard.configurationSource.remoteSource}',
+										pattern:wamc.validation.url({http:true,https:true,allowNamed:true}),
+										instantValidate:true,
+										helpMessage:'${nls.createDomainWizard.configurationSource.hoverHelp.remoteSource}',
+										labelWidth:'120px',
+										role:'textbox'"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="configSourceRemoteSourceDataField"/>
+						</div>
+
+						<div class="formRow">
+							<input
+								class="dataField" 
+								data-dojo-attach-point="configSourceExistingDomainRadioButton" 
+								data-dojo-type="dijit/form/RadioButton" 
+								data-dojo-props="name:'sourceType',
+									value:'existing'"/>
+							<label data-wamc-labelfor="configSourceExistingDomainRadioButton">${nls.createDomainWizard.configurationSource.existingSourceRadio}</label>
+						</div>
+
+						<div class="formRow indent">
+							<select data-dojo-props="name:'existingDomain',label:'${nls.createDomainWizard.configurationSource.selectDomain}', labelWidth:'120px',maxHeight:-1"
+									data-dojo-type="wamc/widget/form/Select"
+									data-dojo-attach-point="configSourceExistingDomainSelect">
+							</select>
+						</div>
+
+					</fieldset>
+					
+				</form>
+			</div>
+		</div>
+		<div data-dojo-attach-point="deploymentPolicyPane" data-dojo-type="dojox/widget/WizardPane" data-dojo-props="title:'${nls.createDomainWizard.deploymentPolicyTitle}'" aria-label="${nls.createDomainWizard.deploymentPolicyTitle}">
+			
+			<div class="wamcForm" role="presentation">
+				<h2>${nls.createDomainWizard.deploymentPolicy.header}</h2>
+				<p>${nls.createDomainWizard.deploymentPolicy.intro}</p>
+				
+				<div class="gridContainer" data-dojo-attach-point="deploymentPolicyGridContainerNode" style="height:170px"></div>
+				
+				<div data-dojo-attach-point="deploymentPolicyDetailNode" style="display:none">
+				
+				<div class="formRow">
+					<select data-dojo-attach-point="deploymentPolicySourceTypeSelect" 
+						data-dojo-type="wamc/widget/form/Select" 
+						data-dojo-props="label:'${nls.createDomainWizard.deploymentPolicy.sourceType.label}',labelWidth:'200px'">
+						<option value="none" selected="selected">${nls.createDomainWizard.deploymentPolicy.sourceType.none}</option>
+						<option value="local">${nls.createDomainWizard.deploymentPolicy.sourceType.local}</option>
+						<option value="remote">${nls.createDomainWizard.deploymentPolicy.sourceType.remote}</option>
+						<option value="existing">${nls.createDomainWizard.deploymentPolicy.sourceType.existingDomain}</option>
+					</select>
+				</div>
+			
+				<form id="${id}_deploymentPolicyForm" enctype="multipart/form-data" data-dojo-type="dijit/form/Form" data-dojo-attach-point="deploymentPolicyForm" method="POST">
+					
+					<div data-dojo-attach-point="deploymentPolicyDetailContentNode" style="display:none">
+					
+						<div class="formRow" data-dojo-attach-point="deploymentPolicyLocalFileRow">
+							<input data-dojo-props="label:'${nls.createDomainWizard.deploymentPolicy.localFileUploader}',
+										labelWidth:'200px',instantValidate:true,readOnly:true,
+										uploader:'${id}_deploymentPolicyPane_localFileDataField',
+										helpMessage:'${nls.createDomainWizard.deploymentPolicy.hoverHelp.localFileUploader}'"
+									data-dojo-type="wamc/widget/form/UploaderValueTextBox"
+									data-dojo-attach-point="deploymentPolicyLocalFileDataFieldDisplay"
+							/><input id="${id}_deploymentPolicyPane_localFileDataField"
+									type="file" 
+									name="localFile" 
+									data-dojo-type="dojox/form/Uploader" 
+									data-dojo-attach-point="deploymentPolicyLocalFileDataField" 
+									data-dojo-props="label:'${nls.createDomainWizard.deploymentPolicy.browse}',multiple:false,url:'${target}'" 
+						/></div>
+								
+						<div class="formRow" data-dojo-attach-point="deploymentPolicyRemoteLocationRow">
+							<input class="dataField"
+									data-dojo-attach-point="deploymentPolicyRemoteLocationDataField" 
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-props="label:'${nls.createDomainWizard.deploymentPolicy.remoteLocation}',labelWidth:'200px',pattern:wamc.validation.url({http:true,https:true,allowNamed:true}),instantValidate:true,helpMessage:'${nls.createDomainWizard.deploymentPolicy.hoverHelp.remoteLocation}',role:'textbox'"/>
+						</div>
+						
+						<div class="formRow" data-dojo-attach-point="deploymentPolicyDomainNameRow">
+							<input class="dataField"
+									data-dojo-attach-point="deploymentPolicyDomainNameDataField" 
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-props="label:'${nls.createDomainWizard.deploymentPolicy.domainName}',instantValidate:true,labelWidth:'200px',role:'textbox',helpMessage:'${nls.createDomainWizard.deploymentPolicy.hoverHelp.domainName}'"/>
+						</div>
+						
+						<div class="formRow" data-dojo-attach-point="deploymentPolicyExistingApplianceRow">
+							<input class="dataField"
+									data-dojo-attach-point="deploymentPolicyExistingApplianceDataField" 
+									data-dojo-type="wamc/widget/form/Select"
+									data-dojo-props="label:'${nls.createDomainWizard.deploymentPolicy.existingAppliance}',instantValidate:true,labelWidth:'200px',maxHeight:-1"/>
+						</div>
+						
+						<div class="formRow" data-dojo-attach-point="deploymentPolicyExistingDomainRow">
+							<input class="dataField"
+									data-dojo-attach-point="deploymentPolicyExistingDomainDataField" 
+									data-dojo-type="wamc/widget/form/Select"
+									data-dojo-props="label:'${nls.createDomainWizard.deploymentPolicy.existingDomain}',instantValidate:true,labelWidth:'200px',maxHeight:-1"/>
+						</div>
+						
+						<div class="formRow" data-dojo-attach-point="deploymentPolicyPolicyNameRow">
+							<input class="dataField"
+									data-dojo-attach-point="deploymentPolicyPolicyNameDataField" 
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-props="label:'${nls.createDomainWizard.deploymentPolicy.policyName}',instantValidate:true,labelWidth:'200px',role:'textbox'"/>
+						</div>
+				
+						<button data-dojo-attach-point="deploymentPolicyApplyButton" data-dojo-type="dijit/form/Button">${nls.createDomainWizard.deploymentPolicy.apply}</button>
+						<button data-dojo-attach-point="deploymentPolicyCancelButton" data-dojo-type="dijit/form/Button">${nls.createDomainWizard.deploymentPolicy.cancel}</button>
+				
+						</div>
+				
+					</form>
+				</div>
+			</div>
+		</div>
+		<div data-dojo-attach-point="syncModePane" data-dojo-type="dojox/widget/WizardPane" data-dojo-props="title:'${nls.createDomainWizard.syncModeTitle}'" aria-label="${nls.createDomainWizard.syncModeTitle}">
+			
+			<div class="wamcForm" role="presentation">
+				<h2>${!nls.createDomainWizard.syncMode.header}</h2>
+				<p>${!nls.createDomainWizard.syncMode.intro}</p>
+				<p>${!nls.createDomainWizard.syncMode.intro2}</p>
+				<p>${!nls.createDomainWizard.syncMode.intro3}</p>
+				<form data-dojo-type="dijit/form/Form" data-dojo-attach-point="syncModeForm" action="">
+					<input class="dataField" data-dojo-type="wamc/widget/form/CheckBox"
+						data-dojo-props="label: '${nls.createDomainWizard.syncMode.enableAutoSync}',
+						labelAlignment: 'horizontal',
+						labelWidth: 110,
+						name:'automaticSynchronization',
+						value:'true',
+						role:'checkbox'"
+					data-dojo-attach-point="syncModeAutomaticSynchronizationDataField"/>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div data-dojo-type="dojox/widget/Standby" data-dojo-attach-point="standby" data-dojo-props="target:this.domNode,text:'${nls.createDomainWizard.standbyText}',centerIndicator:'text',color:'#F7F7F7'"></div>
+	<div data-dojo-type="wamc/widget/form/UploadStandby" data-dojo-attach-point="uploadStandby" data-dojo-props="target:this.domNode,message:'${nls.createDomainWizard.standbyText}',centerIndicator:'text',color:'#F7F7F7'"></div>
+</div>

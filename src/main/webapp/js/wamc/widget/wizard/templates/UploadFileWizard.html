@@ -1,0 +1,94 @@
+<div class="wamcWizard" role="presentation">
+	<div data-dojo-type="wamc/widget/Wizard" data-dojo-props="nextButtonLabel:'${nls.uploadFileWizard.next}',previousButtonLabel:'${nls.domainConfigurationWizard.previous}',cancelButtonLabel:'${nls.domainConfigurationWizard.cancel}',doneButtonLabel:'${nls.uploadFileWizard.done}'" data-dojo-attach-point="wizard" aria-label="${nls.uploadFileWizard.title}">
+		<div data-dojo-attach-point="sourcePane" data-dojo-type="dojox/widget/WizardPane" data-dojo-props="title:'${nls.uploadFileWizard.sourceTitle}'" aria-label="${nls.uploadFileWizard.sourceTitle}">
+			<div class="wamcForm" role="presentation">
+				<form id="${id}_sourceForm" enctype="multipart/form-data" data-dojo-attach-point="sourceForm" data-dojo-type="dijit/form/Form" method="POST" >
+					<fieldset>
+						<legend>${nls.uploadFileWizard.source.header}</legend>
+						
+						<div class="formRow">
+							<input class="dataField"
+								data-dojo-type="dijit/form/RadioButton" 
+								data-dojo-attach-point="sourceLocalRadioButton" 
+								data-dojo-props="name:'sourceType',
+									value:'local'"/>
+							<label data-wamc-labelfor="sourceLocalRadioButton">${nls.uploadFileWizard.source.localRadio}</label>
+						</div>
+						
+						<div class="formRow indent"
+							><input
+									data-dojo-props="label:'${nls.uploadFileWizard.source.localSource}',labelWidth:'120px',readOnly:true,uploader:'${id}_sourcePane_localSourceUploader'"
+									data-dojo-type="wamc/widget/form/UploaderValueTextBox"
+									data-dojo-attach-point="sourceLocalSourceDisplay"
+							/><input 
+									id="${id}_sourcePane_localSourceUploader" type="file"
+									name="localFile"
+									data-dojo-type="dojox/form/Uploader" 
+									data-dojo-attach-point="sourceLocalSourceUploader"  
+									data-dojo-props="label:'${nls.uploadFileWizard.source.browse}',multiple:false,url:'${target}'" 
+						/></div>
+						
+						<div class="formRow">
+							<input
+								class="dataField" 
+								data-dojo-attach-point="sourceRemoteRadioButton" 
+								data-dojo-type="dijit/form/RadioButton" 
+								data-dojo-props="name:'sourceType',
+									value:'remote'"/>
+							<label data-wamc-labelfor="sourceRemoteRadioButton">${nls.uploadFileWizard.source.remoteRadio}</label>
+						</div>
+					
+						<div class="formRow indent"
+							><input class="dataField"
+									data-dojo-props="name:'uri',label:'${nls.uploadFileWizard.source.remoteSource}',pattern:wamc.validation.url({http:true,https:true,allowNamed:true}),instantValidate:true, labelWidth:'120px',
+										helpMessage:'${nls.uploadFileWizard.source.hoverHelp.remoteSource}',role:'textbox'"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="sourceRemoteSourceDataField"
+						/></div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<div data-dojo-attach-point="destinationPane" data-dojo-type="dojox/widget/WizardPane" data-dojo-props="title:'${nls.uploadFileWizard.destinationTitle}'" aria-label="${nls.uploadFileWizard.destinationTitle}">
+			
+			<div class="wamcForm" role="presentation">
+				<h2>${nls.uploadFileWizard.destination.header}</h2>
+				<p>${nls.uploadFileWizard.destination.intro}</p>
+				
+				<form data-dojo-type="dijit/form/Form" data-dojo-attach-point="destinationForm">
+					<div class="formRow">
+						<input class="dataField"
+								data-dojo-attach-point="destinationFolderDataField" 
+								data-dojo-type="wamc/widget/form/TextBox"
+								data-dojo-props="label:'${nls.uploadFileWizard.destination.folder}',
+									name:'folder',
+									required:true,
+									pattern:wamc.validation.folder(),
+									instantValidate:true,
+									labelWidth:'200px',
+									fieldWidth:'200px',
+									helpMessage:'${nls.uploadFileWizard.destination.hoverHelp.folder}',
+									role:'textbox'"/>
+					</div>
+					<br />
+					<h2>${nls.uploadFileWizard.destination.header2}</h2>
+					
+					<div class="formRow">
+						<input class="dataField"
+								data-dojo-attach-point="destinationFileNameDataField" 
+								data-dojo-type="wamc/widget/form/TextBox"
+								data-dojo-props="label:'${nls.uploadFileWizard.destination.fileName}',
+									name:'fileName',
+									required:true,
+									pattern:wamc.validation.fileName(),
+									instantValidate:true,
+									labelWidth:'200px',
+									fieldWidth:'200px',
+									role:'textbox'"/>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div data-dojo-type="dojox/widget/Standby" data-dojo-attach-point="standby" data-dojo-props="target:this.domNode,text:'${nls.uploadFileWizard.standbyText}',centerIndicator:'text',color:'#F7F7F7'"></div>
+</div>

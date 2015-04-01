@@ -1,0 +1,41 @@
+<div id="widget_${id}"
+	class="dijitInline dijitReset dijitLeft"
+	data-dojo-attach-point="_popupStateNode">
+	<div class="wamcLabel dijitInline dijitHidden">
+		<span class="wamcRequiredIcon">*&nbsp</span><label for="${id}"
+			data-dojo-attach-point="compLabelNode"></label>
+	</div>
+	<div class="dijitInline">
+		<table class="dijit dijitReset dijitInline dijitLeft"
+			data-dojo-attach-point="_aroundNode,_buttonNode,tableNode,focusNode,stateNode"
+			cellspacing='0' cellpadding='0' role="listbox" aria-haspopup="true">
+			<tbody role="presentation">
+				<tr role="presentation">
+					<td
+						class="dijitReset dijitStretch dijitButtonContents dijitButtonNode"
+						role="presentation"><span
+						class="dijitReset dijitInline dijitButtonText"
+						data-dojo-attach-point="containerNode"></span><input type="hidden"
+						${!nameAttrSetting} data-dojo-attach-point="valueNode" value="${value}"
+						aria-hidden="true" /></td>
+					<td
+						class="dijitReset dijitRight dijitButtonNode dijitArrowButton dijitDownArrowButton"
+						data-dojo-attach-point="titleNode" role="presentation"><div
+							class="dijitReset dijitArrowButtonInner" role="presentation"></div>
+						<div class="dijitReset dijitArrowButtonChar" role="presentation">&#9660;</div></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class='dijitReset dijitValidationContainer dijitInline'
+		data-dojo-attach-point="iconNode">
+		<div class="dijitValidationIcon">
+			<input class="dijitReset dijitInputField dijitValidationInner"
+				value="&#935; " type="text" tabIndex="-1" readonly="readonly"
+				role="presentation"/
+
+    >
+		</div>
+	</div>
+</div>
+

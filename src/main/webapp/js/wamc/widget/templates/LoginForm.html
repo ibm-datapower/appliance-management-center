@@ -1,0 +1,76 @@
+<div class="${baseClass}">
+	<div class="${baseClass}BoxWithShadow">
+		<div class="${baseClass}Box">
+			<div class="${baseClass}BoxInner">
+
+				<div data-dojo-attach-point="loginTitleNode"
+					class="${baseClass}Title">${loginTitle}</div>
+
+				<form data-dojo-type="dijit/form/Form"
+					data-dojo-attach-point="loginForm"
+					data-dojo-attach-event="onSubmit:_onSubmit"
+					action="j_security_check" method="POST">
+
+					<div class="wamcMessage wamcErrorMessage wamcLoginError"
+						data-dojo-attach-point="loginErrorNode">
+						<div class="wamcMessageHeader">
+							<div class="dijitInline wamcMessageIcon">
+								<span class="wamcMessageContent wamcMessageAltText">${nls.loginForm.errorIconAltText}</span>
+							</div>
+							<div class="dijitInline wamcMessageContent">
+								<span id="${id}_message" class="wamcMessageMessage"
+									data-dojo-attach-point="invalidMessageNode" tabindex="0">${invalidMessage}</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="${baseClass}SubTitle"
+						data-dojo-attach-point="loginSubtitleNode">${loginSubTitle}</div>
+
+					<input data-dojo-attach-point="loginUserName" type="text"
+						data-dojo-type="wamc/widget/form/TextBox"
+						data-dojo-props="name:'j_username',
+									required: true,
+									value:'', intermediateChanges: true,
+									autocomplete: 'on',
+									label: '${labelUserName}${labelSeparator}',
+									labelAlignment: 'vertical',
+									missingMessage: '${invalidMessage}',
+									invalidMessage: '${invalidMessage}',
+									pattern:wamc.validation.username()"></input><br>
+					<input type="password" data-dojo-type="wamc/widget/form/TextBox"
+						data-dojo-attach-point="loginPassword"
+						data-dojo-props="id:'${id}Password',
+									name:'j_password',
+									required:'true', intermediateChanges: true,
+									autocomplete: 'on',
+									label: '${labelPassword}${labelSeparator}',
+									labelAlignment: 'vertical',
+									value:'',
+									'class': '${baseClass}Field',
+									missingMessage:'${invalidMessage}',
+									invalidMessage:'${invalidMessage}',
+									pattern:wamc.validation.password()"></input>
+
+					<div data-dojo-attach-point="containerNode"></div>
+
+					<div data-dojo-attach-point="inactivityMessageNode"
+						class="wamcLoginFrameInactivityMessage">${inactivityMessage}</div>
+
+					<div class="${baseClass}ButtonBar">
+						<button data-dojo-type="dijit/form/Button"
+							data-dojo-attach-point="loginButton" name="login" type="submit">${labelSubmitButton}</button>
+						<button data-dojo-type="dijit/form/Button"
+							data-dojo-attach-point="cancelButton"
+							data-dojo-attach-event="onClick:_onCancel" name="cancel"
+							style="visibility: hidden; display: none;">${labelCancelButton}</button>
+					</div>
+
+					<div data-dojo-attach-point="copyrightNode"
+						class="${baseClass}Copyright">${loginCopyright}</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

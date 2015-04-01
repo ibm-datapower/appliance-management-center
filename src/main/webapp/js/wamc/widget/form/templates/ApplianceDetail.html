@@ -1,0 +1,129 @@
+<div class="wamcForm" role="presentation">
+	<div data-dojo-attach-point="formNode" role="presentation">
+		<input class="dataField" data-dojo-type="wamc/widget/form/TextBox"
+				data-dojo-props="label: '${nls.applianceDetail.name}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					readOnly:true,
+					helpMessage:'${nls.applianceDetailsHoverHelp.name}',
+					role:'textbox'"
+				data-dojo-attach-point="nameDataField"
+				data-wamc-datakey="name"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/TextBox"
+				data-dojo-props="label: '${nls.applianceDetail.hostName}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					readOnly:true,
+					helpMessage:'${nls.applianceDetailsHoverHelp.hostName}',
+					role:'textbox'"
+				data-dojo-attach-point="hostNameDataField"
+				data-wamc-datakey="hostName"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.applianceDetail.applianceType}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					readOnly:true"
+				data-dojo-attach-point="applianceTypeDataField"
+				data-wamc-datakey="applianceType"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.applianceDetail.model}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					readOnly:true"
+				data-dojo-attach-point="modelDataField"
+				data-wamc-datakey="model"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.applianceDetail.firmwareVersion}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					readOnly:true"
+				data-dojo-attach-point="firmwareLevelDataField"
+				data-wamc-datakey="firmwareLevel"/>
+				
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.applianceDetail.groups}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					fieldWidth: '180px',
+					readOnly:true"
+				data-dojo-attach-point="groupsDataField"
+				data-wamc-datakey="groups"/>
+
+		<div class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+			data-dojo-props="label: '${nls.applianceDetail.status}',
+				labelAlignment: 'horizontal',
+				labelWidth: '110px',
+				readOnly:true"
+			data-dojo-attach-point="statusDataField"
+			data-wamc-datakey="status"></div>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.applianceDetail.featureList}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					fieldWidth: '180px',
+					readOnly:true,
+					helpMessage:'${nls.applianceDetailsHoverHelp.featureList}'"
+				data-dojo-attach-point="featureLicensesDataField"
+				data-wamc-datakey="featureLicenses"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.applianceDetail.serialNumber}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					readOnly:true"
+				data-dojo-attach-point="serialNumberDataField"
+				data-wamc-datakey="serialNumber"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/TextBox"
+				data-dojo-props="label: '${nls.applianceDetail.quiesceTimeout}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					readOnly:true,
+					helpMessage:'${nls.applianceDetailsHoverHelp.quiesceTimeout}',
+					role:'textbox'"
+				data-dojo-attach-point="quiesceTimeoutDataField"
+				data-wamc-datakey="quiesceTimeout"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.applianceDetail.ampVersion}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					readOnly:true"
+				data-dojo-attach-point="ampVersionDataField"
+				data-wamc-datakey="ampVersion"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/NumberTextBox"
+				data-dojo-props="label: '${nls.applianceDetail.ampPort}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					readOnly:true,constraints:{min:0,max:65535,places:0,pattern:'#####'},
+					helpMessage:'${nls.applianceDetailsHoverHelp.ampPort}',
+					role:'textbox'"
+				data-dojo-attach-point="ampPortDataField"
+				data-wamc-datakey="ampPort"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/TextBox"
+				data-dojo-props="label: '${nls.applianceDetail.adminUserId}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					readOnly:true,
+					role:'textbox'"
+				data-dojo-attach-point="applianceUserIdDataField"
+				data-wamc-datakey="adminUserId"/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/TextBox"
+				data-dojo-props="label: '${nls.applianceDetail.adminUserPassword}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					type:'password',
+					readOnly:true,
+					role:'textbox'"
+				data-dojo-attach-point="appliancePasswordDataField"
+				data-wamc-datakey="adminUserPassword"/>
+	</div>
+</div>

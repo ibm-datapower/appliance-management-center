@@ -1,0 +1,39 @@
+<div class="wamcForm" role="presentation">
+	<form data-dojo-type="dijit/form/Form"
+		data-dojo-attach-point="formNode">
+		<fieldset>
+			<legend>${nls.assignGroupsForm.existingGroups.title}</legend>
+			<p>${nls.assignGroupsForm.existingGroups.intro}</p>
+			<div class="wamcCheckBoxList"
+				data-dojo-attach-point="existingGroupsNode" role="presentation"></div>
+		</fieldset>
+		<fieldset>
+			<legend>${nls.assignGroupsForm.newGroup.title}</legend>
+			<div class="formRow" role="presentation">
+				<div class="formCell twoThirds" role="presentation">
+					<input data-dojo-type="wamc/widget/form/TextBox"
+						data-dojo-attach-point="newGroupDataField"
+						data-dojo-props="label:'${nls.assignGroupsForm.newGroup.name}',
+								labelAlignment:'top',
+								fieldWidth:'240px',
+								pattern:wamc.validation.groupName(),
+								helpMessage:'${nls.assignGroupsForm.newGroup.hoverHelp}',
+								role:'textbox'" />
+				</div>
+				<div class="formCell third" role="presentation">
+					<input data-dojo-type="dijit/form/Button"
+						data-dojo-attach-point="addButton"
+						data-dojo-props="label:'${nls.assignGroupsForm.newGroup.add}',disabled:true" />
+				</div>
+			</div>
+		</fieldset>
+		<div class="wamcFormControls" role="presentation">
+			<input data-dojo-type="dijit/form/Button"
+				data-dojo-attach-point="submitButton"
+				data-dojo-props="label:'${nls.assignGroupsForm.submit}'"
+				type="submit"></input> <input data-dojo-type="dijit/form/Button"
+				data-dojo-attach-point="cancelButton"
+				data-dojo-props="label:'${nls.assignGroupsForm.cancel}'"></input>
+		</div>
+	</form>
+</div>

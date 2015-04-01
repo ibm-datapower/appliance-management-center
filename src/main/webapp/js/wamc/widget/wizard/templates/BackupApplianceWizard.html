@@ -1,0 +1,253 @@
+<div class="wamcWizard">
+	<div data-dojo-type="wamc/widget/Wizard" data-dojo-props="nextButtonLabel:'${nls.backupApplianceWizard.next}',previousButtonLabel:'${nls.backupApplianceWizard.previous}',cancelButtonLabel:'${nls.backupApplianceWizard.cancel}',doneButtonLabel:'${nls.backupApplianceWizard.done}'" data-dojo-attach-point="wizard" aria-label="${nls.backupApplianceWizard.title}">
+		<div data-dojo-attach-point="cryptoPane" data-dojo-type="dojox/widget/WizardPane" data-dojo-props="title:'${nls.backupApplianceWizard.crypto.title}'" aria-label="${nls.backupApplianceWizard.crypto.title}">
+			<div class="wamcForm" role="presentation">
+				<form id="${id}_cryptoForm" enctype="multipart/form-data" data-dojo-type="dijit/form/Form" data-dojo-attach-point="cryptoForm" method="POST" action="">
+				
+					<fieldset name="cryptoSpecifyCryptoFieldset">
+						<legend>${nls.backupApplianceWizard.crypto.title}</legend>
+						
+						<p>${nls.backupApplianceWizard.crypto.specifyBackupCryptoDetails}</p>
+						
+						<div class="formRow" role="presentation"
+							><input id="${id}_cryptoPane_certificateNameRadioButton" 
+								data-dojo-type="dijit/form/RadioButton" 
+								data-dojo-attach-point="cryptoCertificateNameRadioButton" 
+								data-dojo-props="name:'source',
+									value:'certficateName'"
+							/><label for="${id}_cryptoPane_certificateNameRadioButton"
+								>${nls.backupApplianceWizard.crypto.certificateNameRadio}</label
+						></div>
+						
+						<div class="formRow indent" role="presentation"
+							><input id="${id}_cryptoPane_certificateNameDataField"
+									type="text" name="certificateName" 
+									data-dojo-type="wamc/widget/form/TextBox" 
+									data-dojo-attach-point="cryptoCertificateNameDataField" 
+									data-dojo-props="label:'${nls.backupApplianceWizard.crypto.certificateName}',
+										labelWidth:'200px',
+										instantValidate:true,
+										trim:true,pattern:wamc.validation.certificateName(),
+										hintPosition:'outside',
+										helpMessage:'${nls.backupApplianceWizard.hoverHelp.cryptoCertificate}'"
+						/></div>
+						
+						<div class="formRow" role="presentation"
+							><input id="${id}_cryptoPane_localFileRadioButton" 
+								data-dojo-type="dijit/form/RadioButton" 
+								data-dojo-attach-point="cryptoLocalFileRadioButton" 
+								data-dojo-props="name:'source',
+									value:'localFile'"
+							/><label for="${id}_cryptoPane_localFileRadioButton"
+								>${nls.backupApplianceWizard.crypto.localFileRadio}</label
+						></div>
+						
+						<div class="formRow indent" role="presentation"
+							><input data-dojo-props="label:'${nls.backupApplianceWizard.crypto.localFile}',
+									labelWidth:'200px',readOnly:true,
+									instantValidate:true,
+									uploader:'${id}_cryptoPane_localFileUploader'"
+								data-dojo-type="wamc/widget/form/UploaderValueTextBox"
+								data-dojo-attach-point="cryptoLocalFileDisplay"
+							/><input id="${id}_cryptoPane_localFileUploader"
+								type="file"
+								name="localFile"
+								data-dojo-type="dojox/form/Uploader"
+								data-dojo-attach-point="cryptoLocalFileDataField"
+								data-dojo-props="label:'${nls.backupApplianceWizard.crypto.browse}',multiple:false,url:'${target}'" 
+						/></div>
+						
+						<div class="formRow" role="presentation"
+							><input id="${id}_cryptoPane_remoteSourceRadioButton"
+								data-dojo-type="dijit/form/RadioButton"
+								data-dojo-attach-point="cryptoRemoteSourceRadioButton"
+								data-dojo-props="name:'source',
+									value:'remoteSource'"
+							/><label for="${id}_cryptoPane_remoteSourceRadioButton"
+								>${nls.backupApplianceWizard.crypto.remoteSourceRadio}</label
+						></div>
+						
+						<div class="formRow indent" role="presentation"
+							><input type="text" 
+								class="dataField"
+								name="remoteSource"
+								data-dojo-type="wamc/widget/form/TextBox"
+								data-dojo-attach-point="cryptoRemoteSourceDataField"
+								data-dojo-props="label:'${nls.backupApplianceWizard.crypto.remoteSource}',
+									labelWidth:'200px',
+									helpMessage:'${nls.backupApplianceWizard.hoverHelp.cryptoRemoteLocation}',
+									instantValidate:true,trim:true,
+									required:true,pattern:wamc.validation.url({http:true,https:true})"
+						></div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<div data-dojo-attach-point="locationPane" data-dojo-type="dojox/widget/WizardPane" data-dojo-props="title:'${nls.backupApplianceWizard.location.title}'" aria-label="${nls.backupApplianceWizard.location.title}">
+			<div class="wamcForm" role="presentation">
+				<form data-dojo-type="dijit/form/Form" data-dojo-attach-point="locationForm">
+					<fieldset name="specifyBackupLocationFieldset">
+						<legend>${nls.backupApplianceWizard.location.title}</legend>
+						<div class="formRow" role="presentation"
+							><input id="${id}_locationPane_zipFileRadioButton"
+									data-dojo-type="dijit/form/RadioButton" 
+									data-dojo-attach-point="locationZipFileRadioButton" 
+									data-dojo-props="name:'type',
+											value:'zipFile',
+											helpMessage:'${nls.backupApplianceWizard.hoverHelp.fileForDownload}'"
+							/><label for="${id}_locationPane_zipFileRadioButton" class="hoverHelpAnchor">${nls.backupApplianceWizard.location.createZipFileRadio}</label
+						></div
+						><div class="formRow" role="presentation"
+							><input id="${id}_locationPane_applianceLocalFileRadioButton"
+									data-dojo-type="dijit/form/RadioButton" 
+									data-dojo-attach-point="locationApplianceLocalFileRadioButton" 
+									data-dojo-props="name:'type',
+											value:'applianceLocalFile'"
+								/><label for="${id}_locationPane_applianceLocalFileRadioButton">${nls.backupApplianceWizard.location.applianceLocalFileRadio}</label
+						></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_applianceLocalFileDataField"
+									type="text" class="dataField"
+									name="applianceLocalFile"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="locationApplianceLocalFileDataField"
+									data-dojo-props="label:'${nls.backupApplianceWizard.location.applianceLocalFile}',
+											labelWidth:'200px',
+											instantValidate:true,
+											trim:true,pattern:wamc.validation.applianceLocalFile(),
+											value:'local://'"
+							/></div
+						><div class="formRow" role="presentation"
+							><input id="${id}_locationPane_applianceTemporaryFileRadioButton"
+								data-dojo-type="dijit/form/RadioButton" 
+								data-dojo-attach-point="locationApplianceTemporaryFileRadioButton" 
+								data-dojo-props="name:'type',
+												value:'applianceTemporaryFile'"
+							/><label for="${id}_locationPane_applianceTemporaryFileRadioButton">${nls.backupApplianceWizard.location.applianceTemporaryFileRadio}</label
+						></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_applianceTemporaryFileDataField"
+									type="text" class="dataField"
+									name="applianceTemporaryFile" 
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="locationApplianceTemporaryFileDataField"
+									data-dojo-props="label:'${nls.backupApplianceWizard.location.applianceTemporaryFile}',
+												labelWidth:'200px',
+												instantValidate:true,
+												trim:true,pattern:wamc.validation.applianceTemporaryFile(),
+												value:'temporary://'"
+							/></div
+						><div class="formRow" role="presentation"
+							><input id="${id}_locationPane_ftpRadioButton"
+									data-dojo-type="dijit/form/RadioButton" 
+									data-dojo-attach-point="locationFtpRadioButton" 
+									data-dojo-props="name:'type',
+										value:'ftp'"
+							/><label for="${id}_locationPane_ftpRadioButton">${nls.backupApplianceWizard.location.ftpRadio}</label
+							></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_ftpHostNameDataField"
+									class="dataField" 
+									name="ftpHostName"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="locationFtpHostNameDataField"
+									data-dojo-props="label:'${nls.backupApplianceWizard.location.ftpHostName}',
+											labelWidth:'200px',
+											instantValidate:true,
+											trim:true,pattern:wamc.validation.host({allowNamed:true,allowIP:true,allowLocal:true,allowPort:false}),
+											helpMessage:'${nls.backupApplianceWizard.hoverHelp.ftpHostName}'"
+										
+							/></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_ftpPortDataField"
+									name="ftpPort"
+									class="dataField"
+									data-dojo-type="wamc/widget/form/NumberTextBox"
+									data-dojo-attach-point="locationFtpPortDataField"
+									data-dojo-props="label:'${nls.backupApplianceWizard.location.ftpPort}',
+											labelWidth:'200px',
+											instantValidate:true,
+											constraints:{min:0,max:65535,places:0,pattern:'#####'},
+											role:'textbox'"
+							/></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_ftpPathDataField"
+									name="ftpPath"
+									class="dataField"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="locationFtpPathDataField"
+									data-dojo-props="label:'${nls.backupApplianceWizard.location.ftpPath}',
+											labelWidth:'200px',
+											instantValidate:true,
+											trim:true"
+							/></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_ftpUserIdDataField"
+									class="dataField"
+									name="ftpUserId"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="locationFtpUserIdDataField"
+									data-dojo-props="label:'${nls.backupApplianceWizard.location.ftpUserId}',
+											labelWidth:'200px',
+											instantValidate:true,
+											trim:true"
+							/></div
+						><div class="formRow indent" role="presentation"
+							><input id="${id}_locationPane_ftpUserPasswordDataField"
+									class="dataField"
+									name="ftpUserPassword"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-attach-point="locationFtpUserPasswordDataField"
+									data-dojo-props="label:'${nls.backupApplianceWizard.location.ftpUserPassword}',
+											labelWidth:'200px',
+											instantValidate:true,
+											trim:true,
+											type:'password'"
+										
+							/></div
+						></fieldset
+					></form
+				></div
+			></div
+			><div data-dojo-attach-point="optionsPane" data-dojo-type="dojox/widget/WizardPane" data-dojo-props="title:'${nls.backupApplianceWizard.options.title}'" aria-label="${nls.backupApplianceWizard.options.title}"
+			><div class="wamcForm">
+				<form data-dojo-type="dijit/form/Form" data-dojo-attach-point="optionsForm">
+					<fieldset name="additionalOptionsFieldset">
+
+						<legend>${nls.backupApplianceWizard.options.title}</legend>		
+						
+						<p>${nls.backupApplianceWizard.options.additionalOptionsDetails}</p>
+
+						<div class="formRow" role="presentation"
+							><div class="formCell half" role="presentation"
+								><input id="${id}_optionsPane_includeiSCSICheckBox"
+									data-dojo-type="dijit/form/CheckBox" 
+									data-dojo-attach-point="optionsIncludeiSCSICheckBox" 
+									data-dojo-props="name:'options',
+												 value:'includeiSCSI',
+												 helpMessage:'${nls.backupApplianceWizard.hoverHelp.iSCSI}',
+												 role:'checkbox'"
+								/><label for="${id}_optionsPane_includeiSCSICheckBox" class="hoverHelpAnchor">${nls.backupApplianceWizard.options.includeiSCSI}</label
+								></div
+							></div
+						><div class="formRow" role="presentation"
+							><div class="formCell half" role="presentation"
+								><input id="${id}_optionsPane_includeRAIDCheckBox"
+									data-dojo-type="dijit/form/CheckBox" 
+									data-dojo-attach-point="optionsIncludeRAIDCheckBox" 
+									data-dojo-props="name:'options',
+												 value:'includeRAID',
+												 helpMessage:'${nls.backupApplianceWizard.hoverHelp.raid}',
+												 role:'checkbox'"
+								/><label for="${id}_optionsPane_includeRAIDCheckBox" class="hoverHelpAnchor">${nls.backupApplianceWizard.options.includeRAID}</label
+								></div
+							></div
+						>
+						<p>${nls.backupApplianceWizard.options.information}</p>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div data-dojo-type="dojox/widget/Standby" data-dojo-attach-point="standby" data-dojo-props="target:this.domNode,text:'${nls.backupApplianceWizard.standbyText}',centerIndicator:'text',color:'#F7F7F7'"></div>
+</div>

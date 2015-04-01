@@ -1,0 +1,72 @@
+<div class="wamcForm" role="presentation">
+	<form id="${id}_form" enctype="multipart/form-data"
+		data-dojo-type="dijit/form/Form" data-dojo-attach-point="formNode"
+		method="POST">
+
+		<fieldset name="sourceFieldset">
+			<legend>${nls.addFirmwareForm.specifySource}</legend>
+
+			<div class="formRow">
+				<input id="${id}_localSourceRadioButton"
+					data-dojo-type="dijit/form/RadioButton"
+					data-dojo-attach-point="localSourceRadioButton"
+					data-dojo-props="name:'source',value:'local'" /><label
+					for="${id}_localSourceRadioButton">${nls.addFirmwareForm.localSourceRadio}</label>
+			</div>
+			<div class="formRow indent">
+				<input data-dojo-type="wamc/widget/form/UploaderValueTextBox"
+					data-dojo-props="label:'${nls.addFirmwareForm.localSource}',
+									labelWidth:'120px',readOnly:true,
+									instantValidate:true,
+									uploader:'${id}_localSourceUploader'" /><input
+					id="${id}_localSourceUploader" type="file" name="localFile"
+					data-dojo-type="dojox/form/Uploader"
+					data-dojo-attach-point="localSourceUploader"
+					data-dojo-props="label:'${nls.addFirmwareForm.browse}',multiple:false,url:'${uploadAction}'" />
+			</div>
+			<div class="formRow">
+				<input id="${id}_remoteSourceRadioButton"
+					data-dojo-type="dijit/form/RadioButton"
+					data-dojo-attach-point="remoteSourceRadioButton"
+					data-dojo-props="name:'source',
+								value:'remote'" /><label
+					for="${id}_remoteSourceRadioButton">${nls.addFirmwareForm.remoteSourceRadio}</label>
+			</div>
+			<div class="formRow indent">
+				<input type="text" class="dataField" name="remoteSource"
+					data-dojo-type="wamc/widget/form/TextBox"
+					data-dojo-attach-point="remoteSourceDataField"
+					data-dojo-props="label:'${nls.addFirmwareForm.remoteSource}',
+								labelWidth:'120px',
+								role:'textbox',
+								trim:true,
+								pattern:wamc.validation.url({http:true,https:true})" />
+			</div>
+		</fieldset>
+
+		<fieldset name="commentFieldset">
+			<legend>${nls.addFirmwareForm.addComment}</legend>
+
+			<div class="formRow indent">
+				<input class="dataField" name="userComment"
+					data-dojo-type="wamc/widget/form/TextBox"
+					data-dojo-attach-point="userCommentsDataField"
+					data-dojo-props="label:'${nls.addFirmwareForm.userComments}',
+								labelWidth:'120px',
+								role:'textbox',trim:true" />
+			</div>
+		</fieldset>
+
+		<div class="wamcFormControls" role="presentation">
+			<input data-dojo-type="dijit/form/Button"
+				data-dojo-attach-point="submitButton"
+				data-dojo-props="label:'${nls.addFirmwareForm.submit}'"></input><input
+				data-dojo-type="dijit/form/Button"
+				data-dojo-attach-point="cancelButton"
+				data-dojo-props="label:'${nls.addFirmwareForm.cancel}'"></input>
+		</div>
+	</form>
+	<div data-dojo-type="wamc/widget/form/UploadStandby"
+		data-dojo-attach-point="standby"
+		data-dojo-props="target:this.domNode,message:'${nls.addFirmwareForm.standbyText}',centerIndicator:'text',color:'#F7F7F7'"></div>
+</div>

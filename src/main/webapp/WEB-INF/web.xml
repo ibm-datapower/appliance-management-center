@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- /**
+ * Copyright 2014 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/ -->
+
+<web-app id="WebApp_ID" version="3.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  
+  <display-name>amc</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <!-- Servlet -->
+  <servlet>
+    <servlet-name>ResourcesApplication</servlet-name>
+    <servlet-class>com.ibm.amc.resources.ResourcesApplication</servlet-class>
+    <init-param>
+      <param-name>javax.ws.rs.Application</param-name>
+      <param-value>com.ibm.amc.resources.ResourcesApplication</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+    <multipart-config>
+      <max-file-size>35000000</max-file-size>
+      <max-request-size>218018841</max-request-size>
+      <file-size-threshold>0</file-size-threshold>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResourcesApplication</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
+  <!-- Security -->
+  <security-role>
+    <role-name>ManagementCenterAdministrators</role-name>
+  </security-role>
+  <security-role>
+    <role-name>SystemAdministrators</role-name>
+  </security-role>
+  <security-role>
+    <role-name>SolutionDeployers</role-name>
+  </security-role>
+  <security-role>
+    <role-name>SystemOperators</role-name>
+  </security-role>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>restrict</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>ManagementCenterAdministrators</role-name>
+      <role-name>SystemAdministrators</role-name>
+      <role-name>SolutionDeployers</role-name>
+      <role-name>SystemOperators</role-name>
+    </auth-constraint>
+    <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>allow</web-resource-name>
+      <url-pattern>/js/*</url-pattern>
+      <url-pattern>/jslib/*</url-pattern>
+      <url-pattern>/css/*</url-pattern>
+      <url-pattern>/feedback</url-pattern>
+      <url-pattern></url-pattern>
+    </web-resource-collection>
+  </security-constraint>
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/login.html</form-login-page>
+      <form-error-page>/login.html?error</form-error-page>
+    </form-login-config>
+  </login-config>
+  <!-- Filters -->
+  <filter>
+    <filter-name>CompressionFilter</filter-name>
+    <filter-class>com.ibm.amc.server.impl.CompressionFilter</filter-class>
+    <async-supported>true</async-supported>
+  </filter>
+  <filter-mapping>
+    <filter-name>CompressionFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>CacheFilter</filter-name>
+    <filter-class>com.ibm.amc.server.impl.CacheFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CacheFilter</filter-name>
+    <url-pattern>/rest/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>PersistenceFilter</filter-name>
+    <filter-class>com.ibm.amc.server.impl.PersistenceContextFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>PersistenceFilter</filter-name>
+    <url-pattern>/rest/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>SecurityFilter</filter-name>
+    <filter-class>com.ibm.amc.security.SecurityServletFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SecurityFilter</filter-name>
+    <url-pattern>/rest/*</url-pattern>
+    <url-pattern>/repository/*</url-pattern>
+  </filter-mapping>
+</web-app>

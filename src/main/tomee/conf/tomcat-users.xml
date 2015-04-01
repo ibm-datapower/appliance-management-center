@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcat-users>
+  <group groupname="SystemAdministrators" roles="AllAuthenticated" />
+  <group groupname="SolutionDeployers" roles="AllAuthenticated"/>
+  <group groupname="SystemOperators" roles="AllAuthenticated"/>
+  <group groupname="ManagementCenterAdministrators" roles="AllAuthenticated"/>
+  <role rolename="tomcat"/>
+  <role rolename="role1"/>
+  <role rolename="manager-gui"/>
+  <role rolename="SystemAdministrators"/>
+  <role rolename="SolutionDeployers"/>
+  <role rolename="SystemOperators"/>
+  <role rolename="ManagementCenterAdministrators"/>
+  <user username="tomcat" password="tomcat" roles="tomcat,manager-gui,ManagementCenterAdministrators,SystemAdministrators,SystemOperators,SolutionDeployers"/>
+  <user username="wamcadmin" password="wamcpass" roles="ManagementCenterAdministrators,SystemAdministrators,SystemOperators,SolutionDeployers"/>
+  <user username="both" password="tomcat" roles="tomcat,role1"/>
+  <user username="role1" password="tomcat" roles="role1"/>
+  <!-- Activate those lines to get access to TomEE GUI -->
+  <role rolename="tomee-admin" />
+  <user username="tomee" password="tomee" roles="tomee-admin,manager-gui" />
+</tomcat-users>

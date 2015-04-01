@@ -1,0 +1,50 @@
+<div class="wamcForm" role="presentation">
+	<form data-dojo-type="dijit/form/Form" data-dojo-attach-point="formNode" action="">
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+			data-dojo-props="label: '${nls.firmwareDetail.applianceType}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					fieldWidth: '200px',
+					readOnly:true,
+					role: 'textbox'"
+				data-dojo-attach-point="applianceTypeDataField"
+				data-wamc-datakey="applianceType"/>
+				
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+			data-dojo-props="label: '${nls.firmwareDetail.modelType}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					fieldWidth: '200px',
+					readOnly:true,
+					role: 'textbox'"
+				data-dojo-attach-point="modelTypeDataField"
+				data-wamc-datakey="modelType"/>
+				
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.firmwareDetail.firmwareVersion}',
+						labelAlignment: 'horizontal',
+						labelWidth: '110px',
+						fieldWidth: '200px',
+						readOnly:true,
+						role: 'textbox'"
+					data-dojo-attach-point="levelDataField"
+					data-wamc-datakey="level"/>
+			
+		<input class="dataField" data-dojo-type="wamc/widget/form/TextBox"
+			data-dojo-props="label: '${nls.firmwareDetail.userComment}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					fieldWidth: '200px',
+					trim:true,
+					required:false,
+					role: 'textbox'"
+				data-dojo-attach-point="userCommentDataField"
+				data-wamc-datakey="userComment"/>
+
+		<div class="wamcFormControls" role="presentation"
+			><input data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitButton" data-dojo-props="label:'${nls.firmwareDetail.update}'" type="submit"></input
+			><input data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelButton" data-dojo-props="label:'${nls.firmwareDetail.cancel}'"></input
+		></div>
+		
+	</form>
+</div>

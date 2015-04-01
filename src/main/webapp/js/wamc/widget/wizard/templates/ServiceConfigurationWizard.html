@@ -1,0 +1,165 @@
+<div class="wamcWizard">
+	<div data-dojo-type="wamc/widget/Wizard"
+		data-dojo-props="nextButtonLabel:'${nls.serviceConfigurationWizard.next}',previousButtonLabel:'${nls.serviceConfigurationWizard.previous}',cancelButtonLabel:'${nls.serviceConfigurationWizard.cancel}',doneButtonLabel:'${nls.serviceConfigurationWizard.done}'"
+		data-dojo-attach-point="wizard" aria-label="${nls.serviceConfigurationWizard.title}">
+		<div data-dojo-attach-point="configSourcePane"
+			data-dojo-type="dojox/widget/WizardPane"
+			data-dojo-props="title:'${nls.serviceConfigurationWizard.configurationSourceTitle}'"
+			aria-label="${nls.serviceConfigurationWizard.configurationSourceTitle}">
+			<div class="wamcForm">
+
+				<form id="${id}_configSourceForm" enctype="multipart/form-data"
+					data-dojo-attach-point="configSourceForm"
+					data-dojo-type="dijit/form/Form" method="POST">
+
+					<fieldset>
+						<legend>${nls.serviceConfigurationWizard.configurationSource.configSourceLegend}</legend>
+
+						<div class="formRow">
+							<input class="dataField" data-dojo-type="dijit/form/RadioButton"
+								data-dojo-attach-point="configSourceLocalSourceRadioButton"
+								data-dojo-props="name:'sourceType',
+									value:'local'" />
+							<label data-wamc-labelfor="configSourceLocalSourceRadioButton">${nls.serviceConfigurationWizard.configurationSource.localSourceRadio}</label>
+						</div>
+
+						<div class="formRow"
+							><input data-dojo-props="label:'${nls.serviceConfigurationWizard.configurationSource.localSource}',
+									labelWidth:'120px',instantValidate:true,readOnly:true,
+									uploader:'${id}_configSourcePane_localSourceUploader'"
+								data-dojo-type="wamc/widget/form/UploaderValueTextBox"
+								data-dojo-attach-point="configSourceLocalSourceDisplay"
+							/><input id="${id}_configSourcePane_localSourceUploader"
+								type="file" name="localFile"
+								data-dojo-type="dojox/form/Uploader"
+								data-dojo-attach-point="configSourceLocalSourceUploader"
+								data-dojo-props="label:'${nls.serviceConfigurationWizard.configurationSource.browse}',multiple:false,url:'${target}'"
+						/></div>
+
+						<div class="formRow">
+							<input class="dataField"
+								data-dojo-attach-point="configSourceRemoteSourceRadioButton"
+								data-dojo-type="dijit/form/RadioButton"
+								data-dojo-props="name:'sourceType',
+									value:'remote'" />
+							<label data-wamc-labelfor="configSourceRemoteSourceRadioButton">${nls.serviceConfigurationWizard.configurationSource.remoteSourceRadio}</label>
+						</div>
+
+						<div class="formRow">
+							<input class="dataField"
+								data-dojo-props="name:'uri',label:'${nls.serviceConfigurationWizard.configurationSource.remoteSource}',
+									labelWidth:'120px',pattern:wamc.validation.url({http:true,https:true,allowNamed:true}),instantValidate:true,helpMessage:'${nls.serviceConfigurationWizard.configurationSource.hoverHelp.remoteSource}',role:'textbox'"
+								data-dojo-type="wamc/widget/form/TextBox"
+								data-dojo-attach-point="configSourceRemoteSourceDataField" />
+						</div>
+
+					</fieldset>
+
+				</form>
+			</div>
+		</div>
+		<div data-dojo-attach-point="deploymentPolicyPane"
+			data-dojo-type="dojox/widget/WizardPane"
+			data-dojo-props="title:'${nls.serviceConfigurationWizard.deploymentPolicyTitle}'"
+			aria-label="${nls.serviceConfigurationWizard.deploymentPolicyTitle}">
+			<div class="wamcForm">
+				<h2>${nls.serviceConfigurationWizard.deploymentPolicy.header}</h2>
+				<p>${nls.serviceConfigurationWizard.deploymentPolicy.intro}</p>
+
+				<div class="gridContainer" data-dojo-attach-point="deploymentPolicyGridContainer"
+					style="height: 170px"></div>
+
+				<div data-dojo-attach-point="deploymentPolicyDetailNode"
+					style="display: none">
+
+					<div class="formRow">
+						<select data-dojo-attach-point="deploymentPolicySourceTypeSelect"
+							data-dojo-type="wamc/widget/form/Select"
+							data-dojo-props="label:'${nls.serviceConfigurationWizard.deploymentPolicy.sourceType.label}',labelWidth:'140px',instantValidate:true">
+							<option value="none" selected="selected">${nls.serviceConfigurationWizard.deploymentPolicy.sourceType.none}</option>
+							<option value="local">${nls.serviceConfigurationWizard.deploymentPolicy.sourceType.local}</option>
+							<option value="remote">${nls.serviceConfigurationWizard.deploymentPolicy.sourceType.remote}</option>
+						</select>
+					</div>
+
+					<form id="${id}_deploymentPolicyForm" enctype="multipart/form-data"
+						data-dojo-type="dijit/form/Form"
+						data-dojo-attach-point="deploymentPolicyForm" method="POST">
+
+						<div data-dojo-attach-point="deploymentPolicyDetailContentNode"
+							style="display: none">
+
+							<div class="formRow"
+								data-dojo-attach-point="deploymentPolicyLocalFileRow"
+								><input data-dojo-props="label:'${nls.serviceConfigurationWizard.deploymentPolicy.localFileUploader}',
+										labelWidth:'200px',instantValidate:true,readOnly:true,
+										uploader:'${id}_deploymentPolicyPane_localFileDataField',
+										helpMessage:'${nls.serviceConfigurationWizard.deploymentPolicy.hoverHelp.localFileUploader}'"
+									data-dojo-type="wamc/widget/form/UploaderValueTextBox"
+									data-dojo-attach-point="deploymentPolicyLocalFileDisplay"
+								/><input id="${id}_deploymentPolicyPane_localFileDataField"
+										type="file" name="localFile"
+										data-dojo-type="dojox/form/Uploader"
+										data-dojo-attach-point="deploymentPolicyLocalFileDataField"
+										data-dojo-props="label:'${nls.serviceConfigurationWizard.deploymentPolicy.browse}',multiple:false,url:'${target}'"
+							/></div>
+
+							<div class="formRow"
+								data-dojo-attach-point="deploymentPolicyRemoteLocationRow">
+								<input class="dataField"
+									data-dojo-attach-point="deploymentPolicyRemoteLocationDataField"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-props="label:'${nls.serviceConfigurationWizard.deploymentPolicy.remoteLocation}',labelWidth:'200px',pattern:wamc.validation.url({http:true,https:true,allowNamed:true}),instantValidate:true,helpMessage:'${nls.serviceConfigurationWizard.deploymentPolicy.hoverHelp.remoteLocation}',role:'textbox'" />
+							</div>
+
+							<div class="formRow"
+								data-dojo-attach-point="deploymentPolicyDomainNameRow">
+								<input class="dataField"
+									data-dojo-attach-point="deploymentPolicyDomainNameDataField"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-props="label:'${nls.serviceConfigurationWizard.deploymentPolicy.domainName}',labelWidth:'200px',instantValidate:true,role:'textbox',helpMessage:'${nls.createDomainWizard.deploymentPolicy.hoverHelp.domainName}'" />
+							</div>
+
+							<div class="formRow"
+								data-dojo-attach-point="deploymentPolicyPolicyNameRow">
+								<input class="dataField"
+									data-dojo-attach-point="deploymentPolicyPolicyNameDataField"
+									data-dojo-type="wamc/widget/form/TextBox"
+									data-dojo-props="label:'${nls.serviceConfigurationWizard.deploymentPolicy.policyName}',labelWidth:'200px',instantValidate:true,role:'textbox'" />
+							</div>
+
+							<button data-dojo-attach-point="deploymentPolicyApplyButton"
+								data-dojo-type="dijit/form/Button">${nls.serviceConfigurationWizard.deploymentPolicy.apply}</button>
+							<button data-dojo-attach-point="deploymentPolicyCancelButton"
+								data-dojo-type="dijit/form/Button">${nls.serviceConfigurationWizard.deploymentPolicy.cancel}</button>
+						</div>
+
+					</form>
+				</div>
+
+			</div>
+		</div>
+		<div data-dojo-attach-point="serviceImpactPane" data-dojo-type="dojox/widget/WizardPane" data-dojo-props="title:'${nls.serviceConfigurationWizard.serviceImpactTitle}'" aria-label="${nls.serviceConfigurationWizard.serviceImpactTitle}">
+			<div class="wamcForm">
+
+				<h2>${nls.serviceConfigurationWizard.serviceImpact.header}</h2>
+
+				<p>${nls.serviceConfigurationWizard.serviceImpact.intro}</p>
+
+				<div class="treePane serviceImpactTreePane"
+					data-dojo-type="dijit/layout/ContentPane"
+					data-dojo-attach-point="serviceImpactTreePane"
+					aria-label="${nls.serviceConfigurationWizard.serviceImpact.header}">
+					<div data-dojo-attach-point="serviceImpactTreeNode"></div>
+					<span data-dojo-attach-point="serviceImpactNoImpactNode"></span>
+				</div>
+
+				<div data-dojo-attach-point="serviceImpactWarningNode" class="hidden">
+					<div class="warningIcon"></div>
+					<p data-dojo-attach-point="serviceImpactWarningMessage" class="important"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-dojo-type="dojox/widget/Standby" data-dojo-attach-point="standby" data-dojo-props="target:this.domNode,text:'${nls.serviceConfigurationWizard.standbyText}',centerIndicator:'text',color:'#F7F7F7'"></div>
+</div>

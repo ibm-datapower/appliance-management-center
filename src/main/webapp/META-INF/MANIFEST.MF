@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: 
+Product-Release: @PRODUCT_RELEASE@
+Build-Number: @BUILD_NUMBER@

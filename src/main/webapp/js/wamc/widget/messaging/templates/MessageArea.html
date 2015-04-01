@@ -1,0 +1,68 @@
+<div role="group" aria-labelledby="${id}_type"
+	><div class="wamcMessageHeader" data-dojo-attach-point="headline"
+		><div data-dojo-attach-point="headlineLeft" class="dijitInline wamcMessageLeft"
+			><div class="dijitInline wamcMessageIcon" data-dojo-attach-point="iconNode"
+				><span id="${id}_type" data-dojo-attach-point="typeNode" class="wamcMessageContent wamcMessageAltText"></span
+			></div
+		></div
+		><div class="dijitInline wamcMessageContent" data-dojo-attach-point="headlineCenter"
+			><span id="${id}_message" class="wamcMessageMessage" tabindex="0" data-dojo-attach-point="messageNode"></span
+			><span class="dijitHidden wamcMessageDetailsLinks" data-dojo-attach-point="detailsLinks"
+				><span class="wamcMessageToggleButton" data-dojo-attach-point="expandCollapseNode" 
+						data-dojo-attach-event="onclick:toggleDetails,onkeydown:_onKey" tabindex="0" role="button"
+						aria-controls="${id}_details" aria-expanded="false">${!nls.expand}</span
+			></span
+		></div
+		><div data-dojo-attach-point="headlineRight" class="dijitInline wamcMessageRight"
+			><div class="dijitInline wamcMessageCloseIcon" title="${nls.closeButton}" role="button" 
+					tabindex="0" data-dojo-attach-point="closeIcon" data-dojo-attach-event="onkeydown:_onKey,onclick:close"
+				><span id="${id}_closeIconAltText" class="wamcMessageContent wamcMessageAltText">X</span
+			></div
+		></div
+	></div
+	><div class="wamcMessageSplitter"></div
+	><div class="dijitHidden wamcMessageFooter wamcMessageContrast" data-dojo-attach-point="codeSectionTopNode" tabindex="0"
+		><span class="wamcMessageTimestamp" data-dojo-attach-point="timestampTopNode"></span
+		><span class="wamcMessageSeparator"> | </span
+		><span class="wamcMessageCode" data-dojo-attach-point="codeTopNode"></span
+	></div>
+	<div id="${id}_details" class="wamcMessageDetails" style="display: none"
+			data-dojo-attach-point="details" aria-label="${nls.messageDetails}"
+			role="document" tabindex="0"
+		><div class="wamcMessageSection"
+				data-dojo-attach-point="explanationSectionNode"
+			><span class="wamcMessageContrast" role="heading">${nls.explanationHeader}</span
+			><div class="wamcMessageDetailPara" data-dojo-attach-point="explanationNode"></div
+		></div
+		><div class="wamcMessageSection"
+				data-dojo-attach-point="userActionSectionNode"
+			><span class="wamcMessageContrast" role="heading">${nls.userActionHeader}</span
+			><div class="wamcMessageDetailPara" data-dojo-attach-point="userActionNode"></div
+		></div>
+		<div class="dijitHidden wamcMessageSection"
+				data-dojo-attach-point="codeSectionNode"
+			><span class="wamcMessageTimestamp" data-dojo-attach-point="timestampNode"></span
+			><span class="wamcMessageSeparator"> | </span
+			><span class="wamcMessageCode" data-dojo-attach-point="codeNode"></span
+		></div
+		><div class="dijitHidden wamcMessageSection"
+				data-dojo-attach-point="causeSectionNode"
+			><div class="wamcMessageCauseLinks" data-dojo-attach-point="causeLinks"
+				><div class="dijitInline wamcExpandIcon" data-dojo-attach-point="toggleCauseIcon"
+						data-dojo-attach-event="onclick:toggleCause,onkeydown:_onKey"
+						aria-controls="${id}_details_cause" aria-expanded="false"
+						title="${nls.closeButton}"
+						tabindex="0" role="button"
+					><span class="wamcMessageContent wamcMessageAltText" data-dojo-attach-point="toggleCauseIconAltText">${!nls.expand}</span
+				></div
+				><span data-dojo-attach-point="toggleCauseLink" data-dojo-attach-event="onclick:toggleCause,onkeydown:_onKey"
+						 tabindex="0" role="button">${nls.causeHeader}</span
+			></div
+			><div class="wamcMessageSplitter"></div
+			><div id="${id}_details_cause" class="wamcMessageCause" 
+					style="display:none"
+					data-dojo-attach-point="causeNode"
+			></div
+		></div
+	></div
+></div>

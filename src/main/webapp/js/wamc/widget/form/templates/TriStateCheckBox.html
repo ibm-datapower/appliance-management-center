@@ -1,0 +1,13 @@
+<div class="wamcComposite dijitReset dijitInline" role="presentation">
+	<div class="dijit dijitReset dijitInline" role="presentation" data-dojo-attach-point="baseNode,stateNode">
+		<div class="dojoxTriStateCheckBoxInner"
+			data-dojo-attach-point="stateLabelNode"></div>
+		<input ${!nameAttrSetting} type="${type}" role="${type}"
+			data-dojo-attach-point="focusNode"
+			class="dijitReset dojoxTriStateCheckBoxInput"
+			data-dojo-attach-point="onclick:_onClick" />
+	</div>
+	<div class="wamcLabel dijitHidden dijitInline">
+		<label for="${id}" data-dojo-attach-point="compLabelNode"></label>
+	</div>
+</div>

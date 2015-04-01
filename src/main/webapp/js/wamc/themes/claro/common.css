@@ -1,0 +1,321 @@
+/**
+ * Copyright 2014 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+body, html { width:100%; height:100%; margin:0; padding:0; overflow:hidden; }
+
+.hidden {
+	display: none !important;
+}
+
+.gridx{
+	height: 100%;
+	width: 100%;
+}
+
+.claro .gridxRowOdd .gridxRowTable {
+    background-color: #ffffff;
+}
+
+.dj_ie9 .gridxFilterBarStatus{
+	padding-left: 45px;
+}
+
+.wamcHeader{
+	/* idx.app.Header needs a height to 
+	 * add it to the 'top' of a BorderContainer. */
+	/* height:86px; */
+}
+
+.wamcPageContainer{
+	/* BorderContainer needs to take up all the space available */
+	width:100%;
+	height:100%;
+}
+
+.wamcContentStack{
+	border: medium none !important;
+}
+
+.wamcContentPage{
+	padding: 0px !important;
+}
+
+.wamcPropertiesPanel, .wamcListPanel{
+	/* The properties panel in the trailing space of a page*/
+	width:340px;
+}
+
+/************/
+
+.important {
+	font-weight: bold;
+}
+
+.formSection {
+	margin-bottom: 40px;
+}
+
+.copyright-text {
+	font-size: 9px !important;
+	color: #666;
+}
+
+.java-compatible-logo {
+	float:right;
+	/*padding-bottom: 25px;*/
+}
+
+.ibm-logo-about {
+	float:left;
+	/*padding-bottom: 25px;*/
+	padding-right: 25px;
+}
+
+/** Overrides from messaging/ModalDialog.css **/
+.claro .dialog .dijitDialogPaneContent {
+	padding:0px;
+}
+
+.claro .messageSummary {
+	overflow:auto;
+	padding:10px 8px;
+	border-top: 0px;
+	_height:48px;
+}
+
+#feedbackBar {
+	border:0px;
+	padding:0px;
+	margin:0px;
+}
+
+.helpMessageIcon{
+	background-image:url("./images/hoverHelpQuestionMarkIcon.png");
+	display: -moz-inline-box;
+	display: inline-block;
+	width:16px;
+	height:16px;
+	margin: 0px 0px 0px 4px;
+	vertical-align: top
+}
+
+.iconAltText {
+	display: none;
+}
+
+.firmwareApplianceTableContainer {
+	height: 151px;
+	width: 580px;
+}
+
+.domainsTableContainer {
+    height: 151px;
+    width: 580px;
+}
+
+.serviceTableContainer {
+    height: 151px;
+    width: 580px;
+}
+
+.wamcForm .gridContainer {
+	width:100%;
+}
+
+.noTopMargin {
+	margin-top: 0em;
+}
+
+.indent {
+	padding-left:5%;
+}
+
+.disabled {
+	position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    z-index: 99;
+    display: none;
+    background: rgba(0,0,0,0.02);
+}
+
+#detailPane {
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.gridxFilterDialog .gridxFilterDialogButtons .gridxFilterDialogBtnAdd {
+	margin-top: 2.5px;
+}
+
+.offScreenLabel {
+	left:-999px;
+	position:absolute;
+}
+
+/** Grid Cell Styles **/
+.gridStatusImage, .gridxUserImage{
+	text-align:center;
+}
+
+.gridxCell {
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+.detailStatusImage {
+    text-align:left;
+}
+
+.linktoWebGUIDiv {
+	margin: 3px 0px 0px 0px;
+}
+
+a.linktoWebGUI {
+	color: blue;
+}
+
+a.linktoWebGUI:visited {
+	color: blue;
+}
+
+a.linktoWebGUI:hover {
+	text-decoration: none;
+	color: blue;
+}
+
+a.linktoWebGUI:active {
+	color: blue;
+	text-decoration: none;
+}
+
+.claro .dijitDialog .dijitDialogPaneContent .messageDialogFooter {
+	margin: 0px 0px;
+	padding: 20px 0px 5px;
+	min-height: 40px;
+	border-top: 1px solid #CCC;
+}
+
+.claro .dijitDialog .dijitDialogPaneContent .messageDialogFooter .messageAction {
+    float: right;
+}
+
+.claro .dijitDialog .dijitDialogPaneContent .messageDialogFooter .messageAction .dijitButton {
+    margin: 0 0 0 5px;
+}
+
+.warningIcon{
+	float:left;
+	display: -moz-inline-box;
+	display: inline-block;
+	width:32px;
+	height:32px;
+	margin: 1px 5px 0 0;
+	background-image:url("./images/warning32.png");
+	vertical-align: middle;
+	
+}
+
+.messageErrorIcon {
+	background-image: url("./images/msgError16.png");
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+
+.messageWarningIcon {
+	background-image: url("./images/msgWarning16.png");
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+
+.messageInformationIcon {
+	background-image: url("./images/msgInfo16.png");
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+
+.messageConfirmationIcon {
+	background-image: url("./images/msgWarning16.png");
+	display: inline-block; 
+	width : 16px;
+	height: 16px;
+	width: 16px;
+}
+
+/** Set Dialog Form Widths **/
+#addApplianceDialog .wamcForm, #editApplianceDialog .wamcForm {
+	width:350px;
+}
+
+#addFirmwareDialog .wamcForm, #addUserRoleDialog .wamcForm{
+	width:500px;
+}
+
+#deleteServiceDialog .wamcForm, #deleteDomainsDialog .wamcForm, #deployFirmwareDialog .wamcForm {
+	width:600px;
+}
+
+#editFirmwareDialog .wamcForm, #assignGroupsDialog .wamcForm{
+	width:400px;
+}
+
+#createServiceDialog .wamcWizard, 
+#serviceConfigurationDialog .wamcWizard,
+#createDomainDialog .wamcWizard,
+#domainConfigurationDialog .wamcWizard,
+#backupApplianceDialog .wamcWizard,
+#restoreApplianceDialog .wamcWizard,
+#uploadFileDialog .wamcWizard {
+	width:600px;	
+}
+
+#createServiceDialog .dojoxWizard, 
+#serviceConfigurationDialog .dojoxWizard,
+#createDomainDialog .dojoxWizard,
+#domainConfigurationDialog .dojoxWizard,
+#backupApplianceDialog .dojoxWizard,
+#restoreApplianceDialog .dojoxWizard,
+#uploadFileDialog .dojoxWizard {
+	height:490px;
+}
+
+.dijitContentPane.treePane {
+	overflow-y: scroll;
+}
+
+.dijitContentPane.serviceImpactTreePane{
+	width: 560px;
+	height: 200px;
+	border: 1px solid #000000;
+}
+
+/* Don't let long unbroken lines (eg very long group names) overhang hover boxes. */
+.dijitTooltip {
+	white-space: pre;           /* CSS 2.0 */
+	white-space: pre-wrap;      /* CSS 2.1 */
+	white-space: pre-line;      /* CSS 3.0 */
+	white-space: -moz-pre-wrap; /* Mozilla */
+	word-wrap: break-word;      /* IE */
+}
+
+/* Don't add extra padding/margin to tree nodes as it causes horizontal scrollbars*/
+.claro .dijitTreeRow, .claro .dijitTreeNode .dojoDndItemBefore, .claro .dijitTreeNode .dojoDndItemAfter {
+	padding:3px 0px;
+	margin:0px;
+	
+}

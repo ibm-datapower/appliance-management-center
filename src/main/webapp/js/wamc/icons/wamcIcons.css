@@ -1,0 +1,74 @@
+/**
+ * Copyright 2014 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+.wamcIconAdd,
+.wamcIconRemove,
+.wamcIconEdit,
+.wamcIconSave,
+.wamcIconCancel,
+.wamcIconShowChild,
+.wamcIconShowParent,
+.wamcIconAssignGroups{
+	width: 16px;
+	height: 16px;
+}
+.wamcIconAdd{
+	background-image: url('images/add.gif');
+}
+.dijitDisabled .wamcIconAdd{
+	background-image: url('images/add_inactive.gif');
+}
+.wamcIconRemove{
+	background-image: url('images/delete.gif');
+}
+.dijitDisabled .wamcIconRemove{
+	background-image: url('images/delete_inactive.gif');
+}
+.wamcIconEdit{
+	background-image: url('images/edit.gif');
+}
+.dijitDisabled .wamcIconEdit{
+	background-image: url('images/edit_inactive.gif');
+}
+.wamcIconSave{
+    background-image: url('images/save.gif');
+}
+.dijitDisabled .wamcIconSave{
+    background-image: url('images/save_inactive.gif');
+}
+.wamcIconCancel{
+    background-image: url('images/cancel.gif');
+}
+.dijitDisabled .wamcIconCancel{
+    background-image: url('images/cancel_inactive.gif');
+}
+.wamcIconShowChild{
+	background-image: url('images/view_child.gif');
+}
+.dijitDisabled .wamcIconShowChild{
+	background-image: url('images/view_child_inactive.gif');
+}
+.wamcIconShowParent{
+	background-image: url('images/view_parent.gif');
+}
+.dijitDisabled .wamcIconShowParent{
+	background-image: url('images/view_parent_inactive.gif');
+}
+.wamcIconAssignGroups{
+	background-image: url('images/assign_groups.gif');
+}
+.dijitDisabled .wamcIconAssignGroups{
+	background-image: url('images/assign_groups_inactive.gif');
+}

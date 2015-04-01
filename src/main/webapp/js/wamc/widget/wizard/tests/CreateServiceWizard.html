@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+/**
+ * Copyright 2014 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+<head>
+	<meta charset="UTF-8">
+	<title>Test for wamc.widget.wizard.CreateServiceWizard</title>
+	
+	<link rel="stylesheet" href="../../../../../jslib/dojo/resources/dojo.css">
+	<link rel="stylesheet" href="../../../../../jslib/dijit/themes/dijit.css">
+	<link rel="stylesheet" href="../../../../../jslib/dijit/themes/claro/claro.css">
+	<link rel="stylesheet" href="../../../../../jslib/gridx/resources/claro/Gridx.css"/>
+	<link rel="stylesheet" href="../../../themes/claro/wamc.css">
+	
+	<script type="text/javascript" src="../../../../../jslib/dojo/dojo.js"  
+		data-dojo-config="async:true,parseOnLoad:true,isDebug:true,locale:'en-gb',paths:{'wamc':'../../wamc','idx':'../../idx'}"></script>
+		
+	<script type="text/javascript">
+		wamc={};
+	</script>
+		
+	<script type="text/javascript">
+		require(["dojo/_base/lang",
+				"dojo/aspect",
+				"dojo/on",
+				"dojo/parser",
+		        "dojo/ready", 
+		         "dijit/registry",
+		         "dijit/Dialog",
+		         "dijit/form/Button",
+		         "wamc/widget/wizard/CreateServiceWizardU",],
+	    	     function(lang,aspect,on,parser,ready,registry,Dialog,Button,CreateServiceWizard){
+			
+			ready(function(){
+				var widget = registry.byId("createServiceWizard");
+				
+				//widget.configurationSourceForm.set("target","/amc/rest/files");
+				
+				var model={domains:
+					[
+						{id:"1111111",name:"daveg",applianceName:"wamcdp5",applianceId:"6800235",primaryKey:"1"},
+						{id:"22222222",name:"Bar",applianceName:"Pants",applianceId:"1111111111",primaryKey:"2"}
+						
+					]};
+				
+				on(registry.byId("showWizard"),"click",function(evt){
+
+					registry.byId("createServiceWizard").set("model",model);					
+					registry.byId("createServiceDialog").show();
+
+				});
+				
+				aspect.after(widget,"onCancel",function(){
+					registry.byId("createServiceDialog").hide();
+					registry.byId("createServiceWizard").reset();
+				});
+				
+				aspect.after(widget,"onDone",function(){
+					
+					var model = widget.get("model");
+					
+					console.debug("!!!!",model)
+				});
+				
+			});
+		});
+	
+	</script>
+	
+</head>
+<body class="claro">
+
+	<h1>Testing the CreateServiceWizard</h1>
+	
+	<button id="showWizard" data-dojo-type="dijit.form.Button">Show Wizard</button>
+	
+	<div id="createServiceDialog" data-dojo-type="dijit.Dialog" data-dojo-props="title:'Create Service'">
+		<div id="createServiceWizard"  data-dojo-type="wamc.widget.wizard.CreateServiceWizardU"/></div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "name": "amc",
+    "description": "IBM Appliance Management Center for DataPower Appliances",
+    "version": 5.0,
+    "keywords":["IBM","DataPower","Appliance"],
+    "maintainers":[{"name":"IBM"}],
+    "contributors":[{"name":"IBM"}],
+    "dojoBuild": "wamc.profile.js"
+}

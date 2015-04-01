@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US">
+/**
+ * Copyright 2014 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+<head>
+	<meta charset="UTF-8">
+	<title>Test for wamc.widget.wizard.CreateDomainWizard</title>
+	
+	<link rel="stylesheet" href="../../../../../jslib/dojo/resources/dojo.css">
+	<link rel="stylesheet" href="../../../../../jslib/dijit/themes/dijit.css">
+	<link rel="stylesheet" href="../../../../../jslib/dijit/themes/claro/claro.css">
+	<link rel="stylesheet" href="../../../../../jslib/gridx/resources/claro/Gridx.css"/>
+	<link rel="stylesheet" href="../../../themes/claro/wamc.css">
+	
+	<script type="text/javascript" src="../../../../../jslib/dojo/dojo.js"  
+		data-dojo-config="async:true,parseOnLoad:true,isDebug:true,locale:'en-gb',paths:{'wamc':'../../wamc','idx':'../../idx'}"></script>
+		
+	<script type="text/javascript">
+		require(["dojo/_base/lang",
+				"dojo/aspect",
+				"dojo/on",
+				"dojo/parser",
+		        "dojo/ready", 
+		         "dijit/registry",
+		         "dijit/Dialog",
+		         "dijit/form/Button",
+		         "wamc/widget/wizard/CreateDomainWizardU",],
+	    	     function(lang,aspect,on,parser,ready,registry,Dialog,Button,CreateDomainWizard){
+			
+			ready(function(){
+				var widget = registry.byId("createDomainWizard");
+				
+				var model={appliances:
+					[
+						{id:"1111111",name:"Foo",applianceType:"Gerbil"},
+						{id:"22222222",name:"Bar",applianceType:"Pants"}
+					],
+					uri:"http://localhost/foo"}
+				
+				on(registry.byId("showWizard"),"click",function(evt){
+
+					registry.byId("createDomainWizard").set("model",model);					
+					registry.byId("createDomainDialog").show();
+
+				});
+				
+				aspect.after(widget,"onCancel",function(){
+					registry.byId("createDomainDialog").hide();
+					registry.byId("createDomainWizard").reset();
+				});
+				
+				aspect.after(widget,"onDone",function(){
+					
+					var model = widget.get("model");
+					
+					console.debug("!!!!",model)
+					
+					
+				});
+				
+			});
+		});
+	
+	</script>
+	
+</head>
+<body class="claro">
+
+	<h1>Testing the CreateDomainWizard</h1>
+	
+	<button id="showWizard" data-dojo-type="dijit.form.Button">Show Wizard</button>
+	
+	<div id="createDomainDialog" data-dojo-type="dijit.Dialog" data-dojo-props="title:'Create Domain'">
+		<div id="createDomainWizard"  data-dojo-type="wamc.widget.wizard.CreateDomainWizardU"/></div>
+	</div>
+	
+</body>
+</html>

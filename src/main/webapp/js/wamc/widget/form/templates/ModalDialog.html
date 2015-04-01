@@ -1,0 +1,14 @@
+<div class="messageSummary">
+	<div class="message${type}Icon"></div>
+	<span id="${id}_desc" role="alertdialog" class="messageDescription"
+		tabindex="0">${text}</span>
+</div>
+<div class="messageWrapper">
+	<div class="dijitDialogPaneContent" tabindex="0" id="${id}_messageContent">${info}</div>
+</div>
+<div class='dijitDialogPaneActionBar'
+	data-dojo-attach-point="actionBarNode">
+	<button data-dojo-type='dijit/form/Button' type='button'
+		data-dojo-attach-point="cancelButton"
+		data-dojo-attach-event='click:onCancel'></button>
+</div>

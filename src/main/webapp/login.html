@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- /**
+ * Copyright 2014 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+ 
+<link rel="stylesheet" href="jslib/dojo/resources/dojo.css"/>
+<link rel="stylesheet" href="jslib/dijit/themes/dijit.css"/>
+<link rel="stylesheet" href="jslib/dijit/themes/claro/claro.css"/>
+<link rel="stylesheet" href="js/wamc/themes/claro/wamc.css">
+
+<script src="js/dojoConfig.js"></script>
+
+<script src="jslib/dojo/dojo.js"
+	data-dojo-config="baseUrl:'.',parseOnLoad:false"></script>
+
+<script type="text/javascript">
+require(["wamc/layers/common"],function(){
+	require(["dojo/parser",
+			"dojo/i18n!wamc/nls/strings",
+			"dijit/layout/BorderContainer",
+			"wamc/widget/LoginForm",
+			"dojo/domReady!"],
+			function(parser,nlsBundle){
+				
+				nls = nlsBundle;
+				
+				parser.parse();
+			});
+});
+</script>
+<title>IBM Appliance Management Center</title>
+</head>
+
+<body class="claro">
+	<div id="template" data-dojo-type="dijit/layout/BorderContainer"
+			data-dojo-props="gutters:false"
+			style="width:100%;height:100%;">
+		<div id=main
+				data-dojo-type="wamc/widget/LoginForm"
+				data-dojo-props="region:'center'"
+				role="main"></div>
+	</div>
+</body>
+</html>

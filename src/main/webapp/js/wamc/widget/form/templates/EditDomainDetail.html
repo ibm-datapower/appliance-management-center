@@ -1,0 +1,45 @@
+<div class="wamcForm" role="presentation">
+	<form data-dojo-type="dijit.form.Form" data-dojo-attach-point="formNode" action="">
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.domainDetail.displayName}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px'"
+				data-dojo-attach-point="displayNameDataField"
+				data-wamc-datakey="displayName"
+				readOnly/>
+	
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+					data-dojo-props="label: '${nls.domainDetail.appliance}',
+						labelAlignment: 'horizontal',
+						labelWidth: '110px'"
+					data-dojo-attach-point="applianceNameDataField"
+					data-wamc-datakey="applianceName"
+					readOnly/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/TextBox"
+				data-dojo-props="label: '${nls.domainDetail.quiesceTimeout}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					required:true,
+					pattern:wamc.validation.quiesceTimeout(),
+					helpMessage:'${nls.domainDetailsHoverHelp.quiesceTimeout}',
+					instantValidate:true,role:'textbox'"
+				data-dojo-attach-point="quiesceTimeoutDataField"
+				data-wamc-datakey="quiesceTimeout"/>
+				
+		<input class="dataField" data-dojo-type="wamc/widget/form/CheckBox"
+				data-dojo-props="label: '${nls.domainDetail.enableAutoSync}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					value:'true',
+					helpMessage:'${nls.domainDetailsHoverHelp.autoSync}',
+					role:'checkbox'"
+				data-dojo-attach-point="automaticSynchronizationDataField"
+				data-wamc-datakey="automaticSynchronization"/>
+		
+		<div class="wamcFormControls" role="presentation"
+			><input data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitButton" type="submit" data-dojo-props="label:'${nls.domainDetail.update}'"></input
+			><input data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelButton" data-dojo-props="label:'${nls.domainDetail.cancel}'"></input
+		></div>
+	</form>
+</div>

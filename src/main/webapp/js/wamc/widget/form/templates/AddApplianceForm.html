@@ -1,0 +1,55 @@
+<div class="wamcForm" role="presentation">
+    <form data-dojo-type="dijit/form/Form" data-dojo-attach-point="formNode" action="">
+        <input class="dataField" data-dojo-type="wamc/widget/form/TextBox"
+               data-dojo-props="label: '${nls.addApplianceForm.name}',
+                                labelWidth: '124px',
+                                trim:true,required:true,
+                                pattern:wamc.validation.applianceName(),
+                                helpMessage:'${nls.applianceDetailsHoverHelp.name}',
+                                role:'textbox'"
+               data-dojo-attach-point="nameDataField"
+               data-wamc-datakey="name"/>
+        
+        <input class="dataField" data-dojo-type="wamc/widget/form/TextBox"
+               data-dojo-props="label: '${nls.addApplianceForm.hostName}',
+                                labelWidth: '124px',
+                                trim:true,required:true,
+                                pattern:wamc.validation.host({allowNamed:true,allowIP:true,allowLocal:true,allowPort:true}),
+                                helpMessage:'${nls.applianceDetailsHoverHelp.hostName}',
+                                role:'textbox'"
+               data-dojo-attach-point="hostNameDataField"
+               data-wamc-datakey="hostName"/>
+       
+        <input class="dataField" data-dojo-type="wamc/widget/form/NumberTextBox"
+               data-dojo-props="label: '${nls.addApplianceForm.ampPort}',
+                                labelWidth: '124px',
+                                trim:true,required:true,
+                                constraints:{min:0,max:65535,places:0,pattern:'#####'},
+                                helpMessage: '${nls.applianceDetailsHoverHelp.ampPort}',
+                                role:'textbox'"
+               data-dojo-attach-point="ampPortDataField" 
+               data-wamc-datakey="ampPort"/>
+
+        <input class="dataField" data-dojo-type="wamc/widget/form/TextBox"
+               data-dojo-props="label: '${nls.addApplianceForm.adminUserId}',
+                                labelWidth: '124px',
+                                trim:true,required:true,
+                                role:'textbox'"
+               data-dojo-attach-point="applianceUserIdDataField" 
+               data-wamc-datakey="adminUserId"/>
+    
+        <input class="dataField" data-dojo-type="wamc/widget/form/TextBox"
+               data-dojo-props="label: '${nls.addApplianceForm.adminUserPassword}',
+                                labelWidth: '124px',
+                                trim:true,required:true,
+                                type: 'password',
+                                role:'textbox'"
+               data-dojo-attach-point="appliancePasswordDataField" 
+               data-wamc-datakey="adminUserPassword"/>
+        
+        <div class="wamcFormControls" role="presentation">
+            <input data-dojo-type="dijit/form/Button" data-dojo-attach-point="submitButton" data-dojo-props="label:'${nls.addApplianceForm.add}'" type="submit" ></input>
+            <input data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelButton" data-dojo-props="label:'${nls.addApplianceForm.cancel}'"></input>
+        </div>
+    </form>
+</div>

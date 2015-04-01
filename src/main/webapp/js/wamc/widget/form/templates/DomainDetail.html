@@ -1,0 +1,68 @@
+<div class="wamcForm" role="presentation">
+	<div data-dojo-attach-point="formNode" role="presentation">
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.domainDetail.displayName}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px'"
+				data-dojo-attach-point="displayNameDataField"
+				data-wamc-datakey="displayName"
+				readonly/>
+	
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+					data-dojo-props="label: '${nls.domainDetail.appliance}',
+						labelAlignment: 'horizontal',
+						labelWidth: '110px'"
+					data-dojo-attach-point="applianceNameDataField"
+					data-wamc-datakey="applianceName"
+					readonly/>
+	
+		<div class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.domainDetail.groups}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px'"
+				data-dojo-attach-point="groupsDataField"
+				data-wamc-datakey="groups"></div>
+	
+		<div class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.domainDetail.status}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px'"
+				data-dojo-attach-point="statusDataField"
+				data-wamc-datakey="status"></div>
+	
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.domainDetail.sourceConfiguration}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px'"
+				data-dojo-attach-point="sourceConfigurationUrlDataField"
+				data-wamc-datakey="sourceConfigurationUrl"
+				readonly/>
+				
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.domainDetail.deploymentPolicy}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px'"
+				data-dojo-attach-point="deploymentPolicyDataField"
+				data-wamc-datakey="deploymentPolicy"
+				readonly/>
+
+		<input class="dataField" data-dojo-type="wamc/widget/form/NumberTextBox"
+				data-dojo-props="label: '${nls.domainDetail.quiesceTimeout}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					helpMessage:'${nls.domainDetailsHoverHelp.quiesceTimeout}'"
+				data-dojo-attach-point="quiesceTimeoutDataField"
+				data-wamc-datakey="quiesceTimeout"
+				readonly/>
+								
+		<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+				data-dojo-props="label: '${nls.domainDetail.autoSync}',
+					labelAlignment: 'horizontal',
+					labelWidth: '110px',
+					helpMessage:'${nls.domainDetailsHoverHelp.autoSync}'"
+				data-dojo-attach-point="automaticSynchronizationDataField"
+				data-wamc-datakey="automaticSynchronizationDisplay"
+				readonly/>
+
+	</div>
+</div>

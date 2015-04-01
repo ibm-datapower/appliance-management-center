@@ -1,0 +1,67 @@
+<div class="wamcForm" role="presentation">
+		<div data-dojo-attach-point="formNode" role="presentation">
+			<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+					data-dojo-props="label: '${nls.firmwareDetail.applianceType}',
+							labelAlignment: 'horizontal',
+							labelWidth: '110px',
+							fieldWidth: '180px',
+							readOnly:true"
+						data-dojo-attach-point="applianceTypeDataField"
+						data-wamc-datakey="applianceType"/>
+
+			<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+					data-dojo-props="label: '${nls.firmwareDetail.modelType}',
+							labelAlignment: 'horizontal',
+							labelWidth: '110px',
+							fieldWidth: '180px',
+							readOnly:true"
+						data-dojo-attach-point="modelTypeDataField"
+						data-wamc-datakey="modelType"/>
+
+			<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+					data-dojo-props="label: '${nls.firmwareDetail.firmwareVersion}',
+							labelAlignment: 'horizontal',
+							labelWidth: '110px',
+							fieldWidth: '180px',
+							readOnly:true"
+						data-dojo-attach-point="levelDataField"
+						data-wamc-datakey="level"/>
+
+			<input class="dataField" data-dojo-type="wamc/widget/form/TextBox"
+				data-dojo-props="label: '${nls.firmwareDetail.userComment}',
+						labelAlignment: 'horizontal',
+						labelWidth: '110px',
+						fieldWidth: '180px',
+						readOnly:true"
+					data-dojo-attach-point="userCommentDataField"
+					data-wamc-datakey="userComment"/>
+
+			<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+					data-dojo-props="label: '${nls.firmwareDetail.firmwareFeatures}',
+							labelAlignment: 'horizontal',
+							labelWidth: '110px',
+							fieldWidth: '180px',
+							readOnly:true,
+							helpMessage:'${nls.repositoryDetailsHoverHelp.features}'"
+						data-dojo-attach-point="firmwareFeaturesDataField"
+						data-wamc-datakey="firmwareFeatures"/>
+
+			<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+					data-dojo-props="label: '${nls.firmwareDetail.manufactureDate}',
+							labelAlignment: 'horizontal',
+							labelWidth: '110px',
+							fieldWidth: '180px',
+							readOnly:true"
+						data-dojo-attach-point="manufactureDateDataField"
+						data-wamc-datakey="manufactureDateDisplay"/>
+
+			<input class="dataField" data-dojo-type="wamc/widget/form/ValueDisplay"
+					data-dojo-props="label: '${nls.firmwareDetail.uploadDate}',
+							labelAlignment: 'horizontal',
+							labelWidth: '110px',
+							fieldWidth: '180px',
+							readOnly:true"
+						data-dojo-attach-point="timeStampDataField"
+						data-wamc-datakey="timeStampDisplay"/>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="wamcForm">
+	<p>${nls.deleteService.description}</p>
+    <div><img src="js/wamc/themes/claro/images/warning32.png" style="float:left;padding-right:5px" alt="${nls.deleteService.warning}" title="${nls.deleteService.warning}"/>
+      <p>${nls.deleteService.warningNoReferences}</p>
+    </div>
+	<div data-dojo-attach-point="serviceTableContainer" class="serviceTableContainer"></div>
+	<p>
+	<div class="messageDialogFooter">
+		<span class="messageAction">
+			<input data-dojo-type="dijit/form/Button" data-dojo-attach-point="deleteButton" data-dojo-props="label:'${nls.deleteService.deleteButton}'"></input>
+			<input data-dojo-type="dijit/form/Button" data-dojo-attach-point="cancelButton" data-dojo-props="label:'${nls.deleteService.cancel}'"></input>
+		</span>
+	</div>
+</div>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- /**
+ * Copyright 2014 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<link rel="stylesheet" href="jslib/dojo/resources/dojo.css"/>
+<link rel="stylesheet" href="jslib/dijit/themes/dijit.css"/>
+<link rel="stylesheet" href="jslib/dijit/themes/claro/claro.css"/>
+<link rel="stylesheet" href="jslib/gridx/resources/claro/Gridx.css"/>
+<link rel="stylesheet" href="jslib/dojox/form/resources/TriStateCheckBox.css"/>
+<link rel="stylesheet" href="js/wamc/themes/claro/wamc.css" />
+
+<script src="js/dojoConfig.js"></script>
+<script src="jslib/dojo/dojo.js"></script>
+
+<script type="text/javascript">
+require(["wamc/layers/common","wamc/layers/management"],function(){
+	require(["wamc/controller/management",
+			"dojo/domReady!"],
+		function(management){
+			management.init();
+	});	
+});
+</script>
+<title>IBM Appliance Management Center</title>
+</head>
+<body class="claro">
+	<div id="header" class="wamcHeader"></div>
+	<div id="template">
+		<div id="main">
+			<div id="feedbackBar"></div>
+			<div id="contentStack"></div>
+		</div>
+	</div>
+</body>
+</html>

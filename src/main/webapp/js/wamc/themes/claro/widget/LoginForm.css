@@ -1,0 +1,108 @@
+/**
+ * Copyright 2014 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+.wamcLoginError {
+	margin-top: 10px;
+	display: none;
+}
+
+.claro .wamcLoginFrameBox {
+    width:480px;
+    padding:20px 25px;
+    border: solid 1px #ccc;
+    -webkit-box-shadow: 0px 2px 10px 0px #eee;
+    -moz-box-shadow: 0px 2px 10px 0px #eee;
+    box-shadow: 0px 2px 10px 0px #eee;
+    border-radius: 3px;
+    background:#fff;
+    margin: 100px auto 0;
+}
+
+.claro .wamcLoginFrameSubTitle,
+.claro .wamcLoginFrameBox .wamcLoginFrameFieldLabel,
+.claro .wamcLoginFrameBox .wamcInactivityMessage,
+.claro .wamcLoginFrameBox .wamcLoginFrameButtonBar
+{
+    margin-top: 10px;
+}
+
+.claro .wamcLoginFrameSubTitle,
+.claro .wamcLoginFrameBox .wamcLoginFrameInactivityMessage {
+    color: #333;
+}
+
+.claro .wamcLoginFrameBox .wamcLoginFrameCopyright
+{
+    margin-top: 20px;
+}
+
+/* Firefox and IE7 only */
+html>body .wamcLoginFrameBox
+{
+    padding: 12px;
+}
+
+.claro .wamcLoginFrameBoxInner
+{
+
+
+}
+
+/* IE6 only */
+* html body .wamcLoginFrameBoxInner
+{
+    padding:12px;
+    background:#fff;
+}
+    
+/* IE6 only */
+* .wamcLoginFrameBoxInner input
+{
+    position: relative;
+    z-index: 1;
+}
+
+/* IE6 only */
+* .wamcLoginFrameBoxInner a
+{
+    position: relative;
+    z-index: 1;
+}
+
+/* IE6 only */
+* .wamcLoginFrameBoxInner button
+{
+    position: relative;
+    z-index: 1;
+}
+
+.claro .wamcLoginFrameCopyright
+{
+    font-family: Georgia, serif;
+    font-size: .92em;
+    color: #444;
+}
+
+.claro .wamcLoginFrameTitle
+{
+    font-size: 22px;
+}
+
+.claro .wamcLoginFrameInput
+{
+    border: 1px solid #9FABBB;
+    float: none;
+    text-align:left;
+}
