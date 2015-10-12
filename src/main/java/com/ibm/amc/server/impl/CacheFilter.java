@@ -59,7 +59,7 @@ public class CacheFilter implements Filter
 			final String path = httpRequest.getPathInfo();
 			boolean disableCaching = true;
 			for (String pattern: excludePatterns) {
-				if (path.matches(pattern))
+				if (path != null && path.matches(pattern))
 				{
 					disableCaching = false;
 					break;
