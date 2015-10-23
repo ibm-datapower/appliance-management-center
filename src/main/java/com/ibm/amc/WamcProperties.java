@@ -17,6 +17,7 @@ package com.ibm.amc;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.InvocationHandler;
@@ -169,7 +170,9 @@ public class WamcProperties implements InvocationHandler
 	 * simple inheritance. Callers see it as a Props, with its simple methods to access properties;
 	 * within this class, think of it as a WamcProperties following the normal singleton pattern.
 	 */
-	private static Props instance;		private static String location;
+	private static Props instance;
+	
+	private static String location;
 
 	private Properties properties;
 
@@ -377,10 +380,26 @@ public class WamcProperties implements InvocationHandler
 	{
 		try
 		{
-			URL propertiesFile;			if(location != null)				propertiesFile = new File(location).toURI().toURL();			else				propertiesFile = findPropertiesFile().toURI().toURL();
+			File propertiesFile;
+			if(location != null)
+                            propertiesFile = new File(location);
+			else
+                            propertiesFile = findPropertiesFile();
 			
 			if(logger.isInfoEnabled()) logger.info("CWZBA0526I_LOADING_PROPS_FROM", propertiesFile.toString());
-			properties.load(propertiesFile.openStream());
+
+                        if(propertiesFile.exists() && propertiesFile.isFile())
+                        {
+                            InputStream stream = propertiesFile.toURI().toURL().openStream();
+                            properties.load(stream);
+                            stream.close();
+                        }
+                        else
+                        {
+                            properties.setProperty("com.ibm.amc.wamtRepository", System.getProperty("user.home") + File.separator + "conf/WAMTRepository");
+                            properties.setProperty("com.ibm.amc.primaryManagementCenterAdministrator", "wamcadmin");
+                            properties.setProperty("com.ibm.amc.historyDirectoryPath", System.getProperty("user.home") + File.separator + "conf/db");
+                        }
 		}
 		catch (IOException e)
 		{
@@ -388,9 +407,14 @@ public class WamcProperties implements InvocationHandler
 		}
 		
 	}
-	public static void initialize(ServletContext sc)	{		location = sc.getInitParameter("com.ibm.amc.wamtPropertiesLocation");
+
+	public static void initialize(ServletContext sc)
+	{
+		location = sc.getInitParameter("com.ibm.amc.wamtPropertiesLocation");
 		if(location == null)
-			location="conf/wamc.properties";	}	
+			location="conf/wamc.properties";
+	}
+	
 	/**
 	 * Find the properties file. Strategy is to first load wamc.properties from 
 	 * anywhere accessible to the current classloader. This is the original 
@@ -401,7 +425,18 @@ public class WamcProperties implements InvocationHandler
 	 */
 	public static File findPropertiesFile()
 	{
-		return new File(location);
+            try
+            {
+                URL baseDir = WamcProperties.class.getProtectionDomain().getCodeSource().getLocation();
+                File propertiesFile;
+                propertiesFile = new File(new URL(baseDir, "wamc.properties").toURI());
+                return propertiesFile;
+            }
+            catch(Exception e)
+            {
+                logger.stacktrace(e);
+            }
+            return new File("conf/wamc.properties");
 	}
 	
 	/**
