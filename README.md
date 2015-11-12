@@ -35,8 +35,12 @@ All major browsers should work correctly, including Internet Explorer, Google Ch
 The following features are not present in the open source version:
 
 * custom role management and UI
-* static roles defined in the web.xml file of the application
+
+The following are improvements done that are not present in the IBM WebSphere Appliance Management Center:
+
 * upload progress bar for firmware upload
+
+Security roles are statically defined in the web.xml file of the application and the mapping of permissions to role is defined in the code.
 
 ## Documentation
 
