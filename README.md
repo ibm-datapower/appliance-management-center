@@ -12,7 +12,7 @@ Centrally manage appliance firmware and configurations across groups of DataPowe
 
 ## Prerequisites
 
-* [Appliance Management Toolkit](http://github.com/ibm-datapower/appliance-management-toolkit) installed on the local Maven respository
+* [Appliance Management Toolkit](http://github.com/ibm-datapower/appliance-management-toolkit) installed on the local Maven repository
 * [Apache Tomee JAXRS 1.7.1](http://tomee.apache.org)
 
 ## Quick Start
